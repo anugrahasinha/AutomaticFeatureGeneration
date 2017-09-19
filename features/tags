@@ -1,0 +1,914 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AND	filters.py	/^    def AND(self, f_obj):$/;"	m	class:FilterObject
+AggAvg	agg_functions.py	/^class AggAvg(AggFuncMySQL):$/;"	c
+AggCount	agg_functions.py	/^class AggCount(AggFK):$/;"	c
+AggFK	agg_functions.py	/^class AggFK(AggFuncBase):$/;"	c
+AggFuncBase	agg_functions.py	/^class AggFuncBase(FeatureBase):$/;"	c
+AggFuncMySQL	agg_functions.py	/^class AggFuncMySQL(AggFuncBase):$/;"	c
+AggMax	agg_functions.py	/^class AggMax(AggFuncMySQL):$/;"	c
+AggMin	agg_functions.py	/^class AggMin(AggFuncMySQL):$/;"	c
+AggStd	agg_functions.py	/^class AggStd(AggFuncMySQL):$/;"	c
+AggSum	agg_functions.py	/^class AggSum(AggFuncMySQL):$/;"	c
+Axes3D	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/display_branin_predictions.py	/^from mpl_toolkits.mplot3d import Axes3D$/;"	i
+BaseEstimator	DeepMining/gcp.py	/^from sklearn.base import BaseEstimator, RegressorMixin$/;"	i
+BaseEstimator	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^from sklearn.base import BaseEstimator, RegressorMixin$/;"	i
+BaseEstimator	gcp_v1.py	/^from sklearn.base import BaseEstimator, RegressorMixin$/;"	i
+BaseEstimator	learning.py	/^from sklearn.base import BaseEstimator, ClassifierMixin$/;"	i
+BeautifulSoup	DeepMining/Test/Kaggle Bags of Popcorn/KaggleWord2VecUtility.py	/^from bs4 import BeautifulSoup$/;"	i
+BeautifulSoup	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^from bs4 import BeautifulSoup$/;"	i
+ClassifierMixin	learning.py	/^from sklearn.base import BaseEstimator, ClassifierMixin$/;"	i
+ConvergenceWarning	learning.py	/^from sklearn.utils import ConvergenceWarning$/;"	i
+ConvergenceWarning	predict.py	/^from sklearn.utils import ConvergenceWarning$/;"	i
+CountVectorizer	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer$/;"	i
+DEFAULT_METADATA	column.py	/^DEFAULT_METADATA = {$/;"	v
+DSMClassifier	learning.py	/^class DSMClassifier(BaseEstimator, ClassifierMixin):$/;"	c
+DSMClassifier	post_process.py	/^from learning import DSMClassifier$/;"	i
+DSMClassifier	predict.py	/^from learning import DSMClassifier$/;"	i
+DSMColumn	column.py	/^class DSMColumn(object):$/;"	c
+DSMColumn	table.py	/^from column import DSMColumn$/;"	i
+DSMTable	database.py	/^from table import DSMTable$/;"	i
+DSMTable	table.py	/^class DSMTable:$/;"	c
+DataConversionWarning	DeepMining/sklearn_utils.py	/^class DataConversionWarning(UserWarning):$/;"	c
+DataConversionWarning	gcp_v1.py	/^class DataConversionWarning(UserWarning):$/;"	c
+Database	database.py	/^class Database:$/;"	c
+Database	export.py	/^    from database import Database$/;"	i
+Database	make_features.py	/^from database import Database$/;"	i
+Database	make_features_base.py	/^from database import Database$/;"	i
+Database	ntiDSMMakeFeatures.py	/^from database import Database$/;"	i
+Database	post_process.py	/^from database import Database$/;"	i
+Database	predict.py	/^from database import Database$/;"	i
+DictVectorizer	learning.py	/^from sklearn.feature_extraction import DictVectorizer$/;"	i
+ExtraTreesClassifier	learning.py	/^from sklearn.ensemble import RandomForestRegressor, GradientBoostingClassifier, RandomForestClassifier, ExtraTreesClassifier$/;"	i
+FeatureBase	agg_functions.py	/^from feature import FeatureBase$/;"	i
+FeatureBase	feature.py	/^class FeatureBase(object):$/;"	c
+FeatureBase	flat_functions.py	/^from feature import FeatureBase$/;"	i
+FeatureBase	row_functions.py	/^from feature import FeatureBase$/;"	i
+FilterObject	agg_functions.py	/^from filters import FilterObject$/;"	i
+FilterObject	filters.py	/^class FilterObject(object):$/;"	c
+FilterObject	post_process.py	/^from filters import FilterObject$/;"	i
+FilterObject	predict.py	/^from filters import FilterObject$/;"	i
+FilterObject	table.py	/^from filters import FilterObject$/;"	i
+FlatFeature	flat_functions.py	/^class FlatFeature(FeatureBase):$/;"	c
+GCP_upperBound_coef	DeepMining/sampling_utils.py	/^GCP_upperBound_coef = 4.$/;"	v
+GaussianCopulaProcess	DeepMining/gcp.py	/^class GaussianCopulaProcess(BaseEstimator, RegressorMixin):$/;"	c
+GaussianCopulaProcess	DeepMining/sampling_utils.py	/^from gcp import GaussianCopulaProcess$/;"	i
+GaussianCopulaProcess	DeepMining/smart_sampling.py	/^from gcp import GaussianCopulaProcess$/;"	i
+GaussianCopulaProcess	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^class GaussianCopulaProcess(BaseEstimator, RegressorMixin):$/;"	c
+GaussianCopulaProcess	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^from gcp_hpo.gcp.gcp import GaussianCopulaProcess$/;"	i
+GaussianCopulaProcess	Deep_Mining_github_current_head/DeepMining/gcp_hpo/smart_search.py	/^from gcp_hpo.gcp.gcp import GaussianCopulaProcess$/;"	i
+GaussianCopulaProcess	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_EI_predictions.py	/^from gcp_hpo.gcp.gcp import GaussianCopulaProcess$/;"	i
+GaussianCopulaProcess	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_UCB_predictions.py	/^from gcp_hpo.gcp.gcp import GaussianCopulaProcess$/;"	i
+GaussianCopulaProcess	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/display_branin_predictions.py	/^from gcp_hpo.gcp.gcp import GaussianCopulaProcess$/;"	i
+GaussianCopulaProcess	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^from gcp_hpo.gcp.gcp import GaussianCopulaProcess$/;"	i
+GaussianCopulaProcess	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/simple_test.py	/^from gcp_hpo.gcp.gcp import GaussianCopulaProcess$/;"	i
+GaussianCopulaProcess	gcp_v1.py	/^class GaussianCopulaProcess(BaseEstimator, RegressorMixin):$/;"	c
+GaussianProcess	DeepMining/sampling_utils.py	/^from sklearn.gaussian_process import GaussianProcess$/;"	i
+GaussianProcess	DeepMining/smart_sampling.py	/^from sklearn.gaussian_process import GaussianProcess$/;"	i
+GaussianProcess	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^from sklearn.gaussian_process import GaussianProcess$/;"	i
+GaussianProcess	Deep_Mining_github_current_head/DeepMining/gcp_hpo/smart_search.py	/^from sklearn.gaussian_process import GaussianProcess$/;"	i
+GaussianProcess	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^from sklearn.gaussian_process import GaussianProcess$/;"	i
+GaussianProcess	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/simple_test.py	/^from sklearn.gaussian_process import GaussianProcess$/;"	i
+GradientBoostingClassifier	learning.py	/^from sklearn.ensemble import RandomForestRegressor, GradientBoostingClassifier, RandomForestClassifier, ExtraTreesClassifier$/;"	i
+Imputer	learning.py	/^from sklearn.preprocessing import OneHotEncoder, Imputer$/;"	i
+KFold	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^from sklearn.cross_validation import KFold$/;"	i
+KMeans	DeepMining/gcp.py	/^from sklearn.cluster import KMeans$/;"	i
+KMeans	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^from sklearn.cluster import KMeans$/;"	i
+KaggleWord2VecUtility	DeepMining/Test/Kaggle Bags of Popcorn/KaggleWord2VecUtility.py	/^class KaggleWord2VecUtility(object):$/;"	c
+LabelEncoder	post_process.py	/^from sklearn.preprocessing import OneHotEncoder, LabelEncoder$/;"	i
+LinearSVC	learning.py	/^from sklearn.svm import SVR, LinearSVR, LinearSVC, SVC$/;"	i
+LinearSVR	learning.py	/^from sklearn.svm import SVR, LinearSVR, LinearSVC, SVC$/;"	i
+MACHINE_EPSILON	DeepMining/gcp.py	/^MACHINE_EPSILON = np.finfo(np.double).eps$/;"	v
+MACHINE_EPSILON	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^MACHINE_EPSILON = np.finfo(np.double).eps$/;"	v
+MACHINE_EPSILON	gcp_v1.py	/^MACHINE_EPSILON = np.finfo(np.double).eps$/;"	v
+MAX_COLS_TABLE	table.py	/^    MAX_COLS_TABLE = 500$/;"	v	class:DSMTable
+MAX_FILTERS	filters.py	/^    MAX_FILTERS = 3$/;"	v	class:FilterObject
+MAX_FUNC_TO_APPLY	make_features.py	/^MAX_FUNC_TO_APPLY = 2$/;"	v
+MAX_FUNC_TO_APPLY	make_features_base.py	/^MAX_FUNC_TO_APPLY = 2$/;"	v
+MAX_FUNC_TO_APPLY	ntiDSMMakeFeatures.py	/^MAX_FUNC_TO_APPLY = 2$/;"	v
+MAX_PATH_LENGTH	feature.py	/^    MAX_PATH_LENGTH = 3$/;"	v	class:FeatureBase
+MetaData	database.py	/^from sqlalchemy.schema import MetaData$/;"	i
+MetaData	make_features.py	/^    from sqlalchemy.schema import MetaData$/;"	i
+MetaData	ntiDSMConfigGenerator.py	/^from sqlalchemy.schema import MetaData$/;"	i
+MetaData	ntiDSMMakeFeatures.py	/^    from sqlalchemy.schema import MetaData$/;"	i
+MetaData	table.py	/^from sqlalchemy.schema import MetaData$/;"	i
+MiniBatchKMeans	learning.py	/^from sklearn.cluster import MiniBatchKMeans$/;"	i
+MiniBatchKMeans	predict.py	/^from sklearn.cluster import MiniBatchKMeans$/;"	i
+Month	row_functions.py	/^class Month(MysqlRowFunc):$/;"	c
+MultinomialNB	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^from sklearn.naive_bayes import MultinomialNB$/;"	i
+MysqlRowFunc	row_functions.py	/^class MysqlRowFunc(FeatureBase):$/;"	c
+NearestNeighbors	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/iterations_needed.py	/^from sklearn.neighbors import NearestNeighbors$/;"	i
+NearestNeighbors	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/run_experiment.py	/^from sklearn.neighbors import NearestNeighbors$/;"	i
+NearestNeighbors	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^from sklearn.neighbors import NearestNeighbors$/;"	i
+NearestNeighbors	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^from sklearn.neighbors import NearestNeighbors$/;"	i
+NonBLASDotWarning	DeepMining/sklearn_utils.py	/^class NonBLASDotWarning(UserWarning):$/;"	c
+NonBLASDotWarning	gcp_v1.py	/^class NonBLASDotWarning(UserWarning):$/;"	c
+OneHotEncoder	learning.py	/^from sklearn.preprocessing import OneHotEncoder, Imputer$/;"	i
+OneHotEncoder	post_process.py	/^from sklearn.preprocessing import OneHotEncoder, LabelEncoder$/;"	i
+OrderedDict	learning.py	/^from collections import OrderedDict$/;"	i
+OrderedDict	predict.py	/^from collections import OrderedDict$/;"	i
+Pipeline	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/interface.py	/^from sklearn.pipeline import Pipeline$/;"	i
+Pipeline	learning.py	/^from sklearn.pipeline import Pipeline$/;"	i
+RFECV	learning.py	/^from sklearn.feature_selection import RFECV$/;"	i
+RandomForestClassifier	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/interface.py	/^from sklearn.ensemble import RandomForestClassifier$/;"	i
+RandomForestClassifier	learning.py	/^from sklearn.ensemble import RandomForestRegressor, GradientBoostingClassifier, RandomForestClassifier, ExtraTreesClassifier$/;"	i
+RandomForestRegressor	learning.py	/^from sklearn.ensemble import RandomForestRegressor, GradientBoostingClassifier, RandomForestClassifier, ExtraTreesClassifier$/;"	i
+RandomizedPCA	learning.py	/^from sklearn.decomposition import RandomizedPCA, TruncatedSVD$/;"	i
+RegressorMixin	DeepMining/gcp.py	/^from sklearn.base import BaseEstimator, RegressorMixin$/;"	i
+RegressorMixin	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^from sklearn.base import BaseEstimator, RegressorMixin$/;"	i
+RegressorMixin	gcp_v1.py	/^from sklearn.base import BaseEstimator, RegressorMixin$/;"	i
+SVC	learning.py	/^from sklearn.svm import SVR, LinearSVR, LinearSVC, SVC$/;"	i
+SVR	learning.py	/^from sklearn.svm import SVR, LinearSVR, LinearSVC, SVC$/;"	i
+SelectKBest	learning.py	/^from sklearn.feature_selection import SelectKBest, f_classif, VarianceThreshold, SelectPercentile$/;"	i
+SelectPercentile	learning.py	/^from sklearn.feature_selection import SelectKBest, f_classif, VarianceThreshold, SelectPercentile$/;"	i
+SmartSearch	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/branin.py	/^from gcp_hpo.smart_search import SmartSearch$/;"	i
+SmartSearch	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/har6.py	/^from gcp_hpo.smart_search import SmartSearch$/;"	i
+SmartSearch	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/interface.py	/^from gcp_hpo.smart_search import SmartSearch$/;"	i
+SmartSearch	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^from gcp_hpo.smart_search import SmartSearch$/;"	i
+SmartSearch	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/run_experiment.py	/^from gcp_hpo.smart_search import SmartSearch$/;"	i
+SmartSearch	Deep_Mining_github_current_head/DeepMining/gcp_hpo/smart_search.py	/^class SmartSearch(object):$/;"	c
+TSNE	learning.py	/^from sklearn.manifold import TSNE$/;"	i
+TSNE	predict.py	/^from sklearn.manifold import TSNE$/;"	i
+Table	table.py	/^from sqlalchemy.schema import Table$/;"	i
+TextLength	row_functions.py	/^class TextLength(MysqlRowFunc):$/;"	c
+TfidfTransformer	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer$/;"	i
+TruncatedSVD	learning.py	/^from sklearn.decomposition import RandomizedPCA, TruncatedSVD$/;"	i
+VarianceThreshold	learning.py	/^from sklearn.feature_selection import SelectKBest, f_classif, VarianceThreshold, SelectPercentile$/;"	i
+Weekday	row_functions.py	/^class Weekday(MysqlRowFunc):$/;"	c
+__getstate__	column.py	/^    def __getstate__(self):$/;"	m	class:DSMColumn	file:
+__getstate__	database.py	/^    def __getstate__(self):$/;"	m	class:Database	file:
+__getstate__	table.py	/^    def __getstate__(self):$/;"	m	class:DSMTable	file:
+__globalinit	ntiDSMGlobal.py	/^def __globalinit():$/;"	f	file:
+__initDBRead	ntiDSMConfigGenerator.py	/^	def __initDBRead(self):$/;"	m	class:ntiDSMConfigGenerator	file:
+__initTablesRead	ntiDSMConfigGenerator.py	/^	def __initTablesRead(self):$/;"	m	class:ntiDSMConfigGenerator	file:
+__init__	DeepMining/gcp.py	/^	def __init__(self, regr='constant', $/;"	m	class:GaussianCopulaProcess
+__init__	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^	def __init__(self, regr='constant', $/;"	m	class:GaussianCopulaProcess
+__init__	Deep_Mining_github_current_head/DeepMining/gcp_hpo/smart_search.py	/^	def __init__(self,$/;"	m	class:SmartSearch
+__init__	column.py	/^    def __init__(self, column, dsm_table, metadata=None):$/;"	m	class:DSMColumn
+__init__	database.py	/^    def __init__(self, url, config=None):$/;"	m	class:Database
+__init__	feature.py	/^    def __init__(self, db, filter_obj=None):$/;"	m	class:FeatureBase
+__init__	filters.py	/^    def __init__(self, filters, label=None, interval_num=None):$/;"	m	class:FilterObject
+__init__	gcp_v1.py	/^	def __init__(self, regr='constant', $/;"	m	class:GaussianCopulaProcess
+__init__	learning.py	/^    def __init__(self, cat_mask, params={}):$/;"	m	class:DSMClassifier
+__init__	ntiDSM.py	/^	def __init__(self):$/;"	m	class:ntiDSM
+__init__	ntiDSMConfigGenerator.py	/^	def __init__(self):$/;"	m	class:ntiDSMConfigGenerator
+__init__	ntiDSMGlobal.py	/^	def __init__(self):$/;"	m	class:ntiDSMGlobal
+__init__	table.py	/^    def __init__(self, table, db):$/;"	m	class:DSMTable
+__repr__	column.py	/^    def __repr__(self):$/;"	m	class:DSMColumn	file:
+__repr__	table.py	/^    def __repr__(self):$/;"	m	class:DSMTable	file:
+__setstate__	database.py	/^    def __setstate__(self, state):$/;"	m	class:Database	file:
+__takeUserInputConfirm	ntiDSMConfigGenerator.py	/^	def __takeUserInputConfirm(self,message=None):$/;"	m	class:ntiDSMConfigGenerator	file:
+__writeConfig	ntiDSMConfigGenerator.py	/^	def __writeConfig(self):$/;"	m	class:ntiDSMConfigGenerator	file:
+__writeLog	ntiDSMGlobal.py	/^        def __writeLog(self,logString):$/;"	f	function:ntiDSMGlobal.getCurrentTCD	file:
+_arg_max_reduced_likelihood_function	DeepMining/gcp.py	/^	def _arg_max_reduced_likelihood_function(self):$/;"	m	class:GaussianCopulaProcess
+_arg_max_reduced_likelihood_function	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^	def _arg_max_reduced_likelihood_function(self):$/;"	m	class:GaussianCopulaProcess
+_arg_max_reduced_likelihood_function	gcp_v1.py	/^	def _arg_max_reduced_likelihood_function(self):$/;"	m	class:GaussianCopulaProcess
+_assert_all_finite	DeepMining/sklearn_utils.py	/^def _assert_all_finite(X):$/;"	f
+_assert_all_finite	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^def _assert_all_finite(X):$/;"	f
+_assert_all_finite	gcp_v1.py	/^def _assert_all_finite(X):$/;"	f
+_atleast2d_or_sparse	DeepMining/sklearn_utils.py	/^def _atleast2d_or_sparse(X, dtype, order, copy, sparse_class, convmethod,$/;"	f
+_atleast2d_or_sparse	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^def _atleast2d_or_sparse(X, dtype, order, copy, sparse_class, convmethod,$/;"	f
+_atleast2d_or_sparse	gcp_v1.py	/^def _atleast2d_or_sparse(X, dtype, order, copy, sparse_class, convmethod,$/;"	f
+_check_params	DeepMining/gcp.py	/^	def _check_params(self, n_samples=None):$/;"	m	class:GaussianCopulaProcess
+_check_params	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^	def _check_params(self, n_samples=None):$/;"	m	class:GaussianCopulaProcess
+_check_params	gcp_v1.py	/^	def _check_params(self, n_samples=None):$/;"	m	class:GaussianCopulaProcess
+_correlation_types	gcp_v1.py	/^	_correlation_types = {$/;"	v	class:GaussianCopulaProcess
+_fit	Deep_Mining_github_current_head/DeepMining/gcp_hpo/smart_search.py	/^	def _fit(self):$/;"	m	class:SmartSearch
+_fit_and_score	Deep_Mining_github_current_head/DeepMining/gcp_hpo/smart_search.py	/^from sklearn.cross_validation import check_cv, _fit_and_score$/;"	i
+_num_samples	DeepMining/sklearn_utils.py	/^def _num_samples(x):$/;"	f
+_num_samples	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^def _num_samples(x):$/;"	f
+_num_samples	gcp_v1.py	/^def _num_samples(x):$/;"	f
+_optimizer_types	gcp_v1.py	/^	_optimizer_types = [$/;"	v	class:GaussianCopulaProcess
+_regression_types	DeepMining/gcp.py	/^	_regression_types = {$/;"	v	class:GaussianCopulaProcess
+_regression_types	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^	_regression_types = {$/;"	v	class:GaussianCopulaProcess
+_regression_types	gcp_v1.py	/^	_regression_types = {$/;"	v	class:GaussianCopulaProcess
+abs	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/iterations_needed.py	/^    abs = 95 + 0.05 * np.asarray(range(101))$/;"	v
+add_column	table.py	/^    def add_column(self, col):$/;"	m	class:DSMTable
+add_feature_quality	post_process.py	/^def add_feature_quality(entity, target, filter_obj=None):$/;"	f
+add_ntiles	row_functions.py	/^def add_ntiles(table, n=10):$/;"	f
+add_results	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^def add_results(parameters,raw_outputs,score_outputs,std_outputs,new_param,new_output):$/;"	f
+agg_functions	make_features.py	/^import agg_functions$/;"	i
+agg_functions	make_features_base.py	/^import agg_functions$/;"	i
+agg_functions	ntiDSMMakeFeatures.py	/^import agg_functions$/;"	i
+all_parameter_bounds	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^all_parameter_bounds = {'artificial_f': np.asarray( [[0,400]] ),$/;"	v
+apply	agg_functions.py	/^    def apply(self):$/;"	m	class:AggFuncBase
+apply	agg_functions.py	/^    def apply(self, fk):$/;"	m	class:AggFK
+apply	agg_functions.py	/^    def apply(self, fk):$/;"	m	class:AggFuncMySQL
+apply	flat_functions.py	/^    def apply(self,fk, inverse=False):$/;"	m	class:FlatFeature
+apply	row_functions.py	/^    def apply(self, table):$/;"	m	class:MysqlRowFunc
+apply_funcs	agg_functions.py	/^def apply_funcs(db, fk, filter_obj=None):$/;"	f
+apply_funcs	row_functions.py	/^def apply_funcs(table):$/;"	f
+array2d	DeepMining/sklearn_utils.py	/^def array2d(X, dtype=None, order=None, copy=False, force_all_finite=True):$/;"	f
+array2d	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^def array2d(X, dtype=None, order=None, copy=False, force_all_finite=True):$/;"	f
+array2d	gcp_v1.py	/^def array2d(X, dtype=None, order=None, copy=False, force_all_finite=True):$/;"	f
+artificial_f	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_EI_predictions.py	/^from gcp_hpo.test.function_utils import artificial_f$/;"	i
+artificial_f	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_UCB_predictions.py	/^from gcp_hpo.test.function_utils import artificial_f$/;"	i
+artificial_f	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^def artificial_f(x):$/;"	f
+artificial_f	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/simple_test.py	/^from gcp_hpo.test.function_utils import artificial_f$/;"	i
+as_float_array	DeepMining/sklearn_utils.py	/^def as_float_array(X, copy=True, force_all_finite=True):$/;"	f
+as_float_array	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^def as_float_array(X, copy=True, force_all_finite=True):$/;"	f
+as_float_array	gcp_v1.py	/^def as_float_array(X, copy=True, force_all_finite=True):$/;"	f
+asinha_exit	make_features.py	/^def asinha_exit(func_name=None,line_num=None):$/;"	f
+asinha_raise_exception	make_features.py	/^def asinha_raise_exception(func_name=None,line_num=None):$/;"	f
+assert_all_finite	DeepMining/sklearn_utils.py	/^def assert_all_finite(X):$/;"	f
+assert_all_finite	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^def assert_all_finite(X):$/;"	f
+assert_all_finite	gcp_v1.py	/^def assert_all_finite(X):$/;"	f
+atleast2d_or_csc	DeepMining/sklearn_utils.py	/^def atleast2d_or_csc(X, dtype=None, order=None, copy=False,$/;"	f
+atleast2d_or_csc	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^def atleast2d_or_csc(X, dtype=None, order=None, copy=False,$/;"	f
+atleast2d_or_csc	gcp_v1.py	/^def atleast2d_or_csc(X, dtype=None, order=None, copy=False,$/;"	f
+atleast2d_or_csr	DeepMining/sklearn_utils.py	/^def atleast2d_or_csr(X, dtype=None, order=None, copy=False,$/;"	f
+atleast2d_or_csr	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^def atleast2d_or_csr(X, dtype=None, order=None, copy=False,$/;"	f
+atleast2d_or_csr	gcp_v1.py	/^def atleast2d_or_csr(X, dtype=None, order=None, copy=False,$/;"	f
+binary_search	DeepMining/GCP_utils.py	/^def binary_search(f, y, lo, hi):$/;"	f
+binary_search	DeepMining/gcp.py	/^from GCP_utils import find_bounds,binary_search,l1_cross_distances,sq_exponential,exponential_periodic$/;"	i
+binary_search	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp_utils.py	/^def binary_search(f, y, lo, hi):$/;"	f
+binary_search	gcp_v1.py	/^def binary_search(f, y, lo, hi, delta):$/;"	f
+branin	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/branin.py	/^def branin(x, y):$/;"	f
+branin_f	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^def branin_f(p_vector):$/;"	f
+branin_f	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/display_branin_predictions.py	/^from gcp_hpo.test.function_utils import branin_f$/;"	i
+can_agg	filters.py	/^    def can_agg(self, col):$/;"	m	class:FilterObject
+categorical	row_functions.py	/^    categorical = False$/;"	v	class:MysqlRowFunc
+categorical	row_functions.py	/^    categorical = False$/;"	v	class:TextLength
+categorical	row_functions.py	/^    categorical = True$/;"	v	class:Month
+categorical	row_functions.py	/^    categorical = True$/;"	v	class:Weekday
+categorical_limit_value	ntiDSMConfigGenerator.py	/^	categorical_limit_value = 20$/;"	v	class:ntiDSMConfigGenerator
+check_arrays	DeepMining/sklearn_utils.py	/^def check_arrays(*arrays, **options):$/;"	f
+check_arrays	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^def check_arrays(*arrays, **options):$/;"	f
+check_arrays	gcp_v1.py	/^def check_arrays(*arrays, **options):$/;"	f
+check_cv	Deep_Mining_github_current_head/DeepMining/gcp_hpo/smart_search.py	/^from sklearn.cross_validation import check_cv, _fit_and_score$/;"	i
+check_random_state	DeepMining/sklearn_utils.py	/^def check_random_state(seed):$/;"	f
+check_random_state	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^def check_random_state(seed):$/;"	f
+check_random_state	gcp_v1.py	/^def check_random_state(seed):$/;"	f
+check_scoring	Deep_Mining_github_current_head/DeepMining/gcp_hpo/smart_search.py	/^from sklearn.metrics.scorer import check_scoring$/;"	i
+choose_model_params	predict.py	/^def choose_model_params(X, y, cat_mask, param_ranges):$/;"	f
+clone	Deep_Mining_github_current_head/DeepMining/gcp_hpo/smart_search.py	/^from sklearn.base import is_classifier, clone$/;"	i
+cluster	predict.py	/^def cluster(entity,k,cols=None):$/;"	f
+cluster_labels	predict.py	/^def cluster_labels(X, k, scale_data=True):$/;"	f
+coef_latent_mapping	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^coef_latent_mapping = 0.1$/;"	v
+col_allowed	agg_functions.py	/^    def col_allowed(self, col, target_table=None):$/;"	m	class:AggFK
+col_allowed	agg_functions.py	/^    def col_allowed(self, col, target_table=None):$/;"	m	class:AggFuncBase
+col_allowed	agg_functions.py	/^    def col_allowed(self, col, target_table=None):$/;"	m	class:AggFuncMySQL
+col_type	row_functions.py	/^    col_type = column_datatypes.INTEGER.__visit_name__$/;"	v	class:Month
+col_type	row_functions.py	/^    col_type = column_datatypes.INTEGER.__visit_name__$/;"	v	class:MysqlRowFunc
+col_type	row_functions.py	/^    col_type = column_datatypes.INTEGER.__visit_name__$/;"	v	class:TextLength
+col_type	row_functions.py	/^    col_type = column_datatypes.INTEGER.__visit_name__$/;"	v	class:Weekday
+colors	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/utils.py	/^from matplotlib import colors$/;"	i
+column	flat_functions.py	/^import column$/;"	i
+column_datatypes	agg_functions.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+column_datatypes	make_features.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+column_datatypes	make_features_base.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+column_datatypes	ntiDSMConfigGenerator.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+column_datatypes	ntiDSMMakeFeatures.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+column_datatypes	row_functions.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+column_datatypes	table.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+column_or_1d	DeepMining/sklearn_utils.py	/^def column_or_1d(y, warn=False):$/;"	f
+column_or_1d	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^def column_or_1d(y, warn=False):$/;"	f
+column_or_1d	gcp_v1.py	/^def column_or_1d(y, warn=False):$/;"	f
+compute_unique1	DeepMining/sampling_utils.py	/^def compute_unique1(a):$/;"	f
+compute_unique1	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^def compute_unique1(a):$/;"	f
+compute_unique2	DeepMining/sampling_utils.py	/^def compute_unique2(a1,a2):$/;"	f
+compute_unique2	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^def compute_unique2(a1,a2):$/;"	f
+compute_unique2	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^def compute_unique2(a1,a2):$/;"	f
+config	config/aank_12may2017.py	/^config =	{$/;"	v
+config	config/aank_17may.py	/^config =	{$/;"	v
+config	config/blank_config.py	/^config = {$/;"	v
+config	config/donorschoose_config.py	/^config = {$/;"	v
+config	config/grockit_config.py	/^config = {$/;"	v
+config	config/ijcai_config.py	/^config = {$/;"	v
+config	config/kdd2015_config.py	/^config = {$/;"	v
+config	config/new_test1.py	/^config =	{$/;"	v
+config	config/superstoresdb_akaur_config.py	/^config = {$/;"	v
+config	config/superstoresdb_asinha_config.py	/^config = {$/;"	v
+config	config/superstoresdb_test1_config.py	/^config = {$/;"	v
+config	make_features.py	/^    print("\\nTrying to import the config file\\n")$/;"	i
+config	make_features_base.py	/^    from kdd2015_config import config$/;"	i
+config	ntiDSMMakeFeatures.py	/^    print("\\nTrying to import the config file\\n")$/;"	i
+constrL	gcp_v1.py	/^			def constrL(x):$/;"	f	function:GaussianCopulaProcess._arg_max_reduced_likelihood_function
+constrU	gcp_v1.py	/^			def constrU(x):$/;"	f	function:GaussianCopulaProcess._arg_max_reduced_likelihood_function
+copy_metadata	column.py	/^    def copy_metadata(self):$/;"	m	class:DSMColumn
+correlation	gcp_v1.py	/^from sklearn.gaussian_process import correlation_models as correlation$/;"	i
+create_column	table.py	/^    def create_column(self, column_type, metadata={}):$/;"	m	class:DSMTable
+create_engine	database.py	/^from sqlalchemy.engine import create_engine$/;"	i
+create_engine	make_features.py	/^    from sqlalchemy.engine import create_engine$/;"	i
+create_engine	make_features_base.py	/^    from sqlalchemy.engine import create_engine$/;"	i
+create_engine	ntiDSMConfigGenerator.py	/^from sqlalchemy.engine import create_engine$/;"	i
+create_engine	ntiDSMMakeFeatures.py	/^    from sqlalchemy.engine import create_engine$/;"	i
+cross_val_score	learning.py	/^from sklearn.cross_validation import train_test_split, cross_val_score$/;"	i
+cross_validation	predict.py	/^from sklearn import cross_validation$/;"	i
+currentDepth	table.py	/^	currentDepth = ntiGlb.ntiDSMGlobalObj.getCurrentTCD(info=2)$/;"	v	class:DSMTable
+data	ijcai_gcp_data.py	/^data = [0.581444501712,0.596524139506,0.624800699041,0.615278879382,0.641289056352,0.586698345492,0.63114509351,0.626507307927,0.591705928086,0.62928888978,0.62577949091,0.562383379156,0.62390955992,0.583897330093,0.594936776125,0.613879830615,0.592309356809,0.594900070778,0.621447718424,0.580453978994,0.621428242537,0.568280080034,0.581179655082,0.597306949938,0.629409942441,0.629339207662,0.619523921176,0.624955963818,0.61507133002,0.575164006051,0.619907364788,0.61424739404,0.616905426471,0.644994283377,0.609731082491,0.55069566911,0.638303427048,0.641683945493,0.621104974921,0.578956274675,0.641260900396,0.623986588754,0.630167687066,0.639922350264,0.645051839746,0.628440687234,0.649705382642,0.645842908094,0.629117288251,0.643430578663,0.667316077801,0.628403949951,0.637037600947,0.614276702094,0.632917346147,0.627176353688,0.630878851623,0.632436722837,0.637663121269,0.637142118322,0.672960205525,0.633662173149,0.589012125714,0.644327769141,0.631513009722,0.5913449008,0.621177797502,0.621225496401,0.622249383719,0.622400269681,0.634373966802,0.633834286853,0.611116168073,0.608552079871,0.638466508393,0.6372351227,0.629644235831,0.63164911886,0.627015190256,0.630033772011,0.636167653198,0.610820010226,0.653698687235,0.612573307116,0.64133638685,0.632467382888,0.624333298631,0.640694422997,0.645288501495,0.63476301031,0.652502297122,0.639285079284,0.63177118874,0.627979295061,0.609846026745,0.644855148163,0.643758211593,0.651690307346,0.664739968484,0.636033409621,0.641162971952,0.629173400612,0.649718061605,0.641623542602,0.641337269469,0.666641833061,0.625176341814,0.643175457738,0.631202584188,0.609323193334,0.633943758155,0.612293381942,0.645703771733,0.646210901224,0.640033157687,0.624014934981,0.64687946963,0.618256138476,0.653721366488,0.666236035232,0.639575911194,0.653743325307,0.640050031788,0.639022980987,0.65439129339,0.648224537714,0.645555451961,0.647695844532,0.662393818163,0.649825149916,0.63908841778,0.629577663572,0.638537432996,0.637649722066,0.641136388733,0.646642782858,0.643463857589,0.644255570102,0.628758107163]$/;"	v
+database_name	export.py	/^    database_name = 'northwind'$/;"	v
+date_to_str	agg_functions.py	/^    def date_to_str(d):$/;"	f	function:make_interval_filters
+datetime	column.py	/^import datetime$/;"	i
+datetime	make_features.py	/^import datetime$/;"	i
+datetime	make_features_base.py	/^import datetime$/;"	i
+datetime	ntiDSMGlobal.py	/^from datetime import datetime$/;"	i
+datetime	ntiDSMMakeFeatures.py	/^import datetime$/;"	i
+db	export.py	/^    db = Database('mysql+mysqldb:\/\/kanter@localhost\/%s' % (database_name)) $/;"	v
+db	post_process.py	/^    db = Database.load(filename)$/;"	v
+db	predict.py	/^    db = Database.load("models\/%s"%model_name)$/;"	v
+debug	make_features.py	/^    import debug$/;"	i
+debug	make_features_base.py	/^    import debug$/;"	i
+debug	ntiDSMMakeFeatures.py	/^    import debug$/;"	i
+defaultConfig	ntiDSMConfigGenerator.py	/^	defaultConfig = {$/;"	v	class:ntiDSMConfigGenerator
+defaultdict	table.py	/^from collections import defaultdict$/;"	i
+dialects	agg_functions.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+dialects	make_features.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+dialects	make_features_base.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+dialects	ntiDSMConfigGenerator.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+dialects	ntiDSMMakeFeatures.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+dialects	row_functions.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+dialects	table.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+dill	database.py	/^import dill$/;"	i
+dir_	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^dir_ = os.path.dirname(gcp_hpo.experiments.__file__)$/;"	v
+disallowed	agg_functions.py	/^    disallowed = set([('agg', 'max'),('agg', 'min')])$/;"	v	class:AggSum
+disallowed	agg_functions.py	/^    disallowed = set([('agg', 'max')])$/;"	v	class:AggMin
+disallowed	agg_functions.py	/^    disallowed = set([('agg', 'min')])$/;"	v	class:AggMax
+disallowed	agg_functions.py	/^    disallowed = set([('agg', 'std')])$/;"	v	class:AggStd
+disallowed	agg_functions.py	/^    disallowed = set([])$/;"	v	class:AggAvg
+disallowed	agg_functions.py	/^    disallowed = set([])$/;"	v	class:AggFuncBase
+distance	DeepMining/gcp.py	/^from scipy.spatial import distance$/;"	i
+distance	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^from scipy.spatial import distance$/;"	i
+do_qry	agg_functions.py	/^        def do_qry(new_table_name, related_table, fk, agg_select, set_values, involved_cols):$/;"	f	function:AggFuncMySQL.apply
+do_qry	row_functions.py	/^    def do_qry(self, target_table, set_vals):$/;"	m	class:MysqlRowFunc
+do_trial	predict.py	/^def do_trial(target_feature, predictors, params={}, filter_obj=None, cv=3, limit=None):$/;"	f
+dropColumns	ntiDSMGlobal.py	/^	def dropColumns(self):$/;"	m	class:ntiDSMGlobal
+execute	database.py	/^    def execute(self, qry):$/;"	m	class:Database
+execute	table.py	/^    def execute(self, qry):$/;"	m	class:DSMTable
+experiments	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^import gcp_hpo.experiments$/;"	i
+exponential_periodic	DeepMining/GCP_utils.py	/^def exponential_periodic(theta,d):$/;"	f
+exponential_periodic	DeepMining/gcp.py	/^from GCP_utils import find_bounds,binary_search,l1_cross_distances,sq_exponential,exponential_periodic$/;"	i
+exponential_periodic	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp_utils.py	/^def exponential_periodic(theta,d):$/;"	f
+exponential_periodic	gcp_v1.py	/^def exponential_periodic(theta,d):$/;"	f
+export_col_names	debug.py	/^def export_col_names(table):$/;"	f
+export_table	export.py	/^def export_table(table, folder="out\/"):$/;"	f
+f	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^    f = open(("scoring_function\/" + str(sub_size) + "_output.csv"),'w')$/;"	v
+f	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^f =open((dir_ + "\/Bags_of_Popcorn\/scoring_function\/output.csv"),'r')$/;"	v
+f	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^f =open((dir_ + "\/MNIST\/scoring_function\/output.csv"),'r')$/;"	v
+f	make_features.py	/^    f = open(".\/ntilog\/iterator",'w')$/;"	v
+f_classif	learning.py	/^from sklearn.feature_selection import SelectKBest, f_classif, VarianceThreshold, SelectPercentile$/;"	i
+f_to_integrate	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^		def f_to_integrate(u):$/;"	f	function:GaussianCopulaProcess.integrate_prediction
+f_to_integrate	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^		def f_to_integrate(u):$/;"	f	function:GaussianCopulaProcess.predicted_RV
+f_to_integrate	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^	def f_to_integrate(u):$/;"	f	function:gcp_compute_ei
+feature_cols	predict.py	/^    feature_cols = get_predictable_features(table)$/;"	v
+fig	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/iterations_needed.py	/^    fig = plt.figure(figsize=(15,7))$/;"	v
+file	make_features.py	/^    print("\\nTrying to import the config file\\n")$/;"	i
+file	ntiDSMMakeFeatures.py	/^    print("\\nTrying to import the config file\\n")$/;"	i
+filename	post_process.py	/^    filename = "models\/%s"%model_name$/;"	v
+filename_suffixe	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^filename_suffixe = '_LGCP_EP_coef1_pred1000_20tests'$/;"	v
+files	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^files ={}$/;"	v
+filter_col	post_process.py	/^    filter_col = table.get_col_by_name("date_posted")$/;"	v
+filter_obj	post_process.py	/^    filter_obj = FilterObject([(filter_col, ">", "2013-1-1")])$/;"	v
+find_best_candidate	DeepMining/sampling_utils.py	/^def find_best_candidate(model, X, Y, args, rand_candidates,verbose,acquisition_function='Simple'):$/;"	f
+find_best_candidate	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^def find_best_candidate(model, X, raw_Y, args, rand_candidates,verbose,acquisition_function='Simple'):$/;"	f
+find_best_candidate_with_GCP	DeepMining/sampling_utils.py	/^def find_best_candidate_with_GCP(X, Y, args, rand_candidates,verbose,acquisition_function='Simple'):$/;"	f
+find_best_candidate_with_GCP	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^def find_best_candidate_with_GCP(X, raw_Y, mean_Y, std_Y, args, rand_candidates,verbose,acquisition_function='Simple'):$/;"	f
+find_best_candidate_with_GP	DeepMining/sampling_utils.py	/^def find_best_candidate_with_GP(X, Y, rand_candidates,verbose,acquisition_function='Simple'):$/;"	f
+find_best_candidate_with_GP	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^def find_best_candidate_with_GP(X, Y, args, rand_candidates,verbose,acquisition_function='Simple'):$/;"	f
+find_bounds	DeepMining/GCP_utils.py	/^def find_bounds(f, y):$/;"	f
+find_bounds	DeepMining/gcp.py	/^from GCP_utils import find_bounds,binary_search,l1_cross_distances,sq_exponential,exponential_periodic$/;"	i
+find_bounds	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp_utils.py	/^def find_bounds(f, y):$/;"	f
+find_bounds	gcp_v1.py	/^def find_bounds(f, y):$/;"	f
+first_exp	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/iterations_needed.py	/^    first_exp = 1$/;"	v
+first_exp	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/transform_param_path.py	/^    first_exp = 1$/;"	v
+fit	DeepMining/gcp.py	/^	def fit(self, X, y):$/;"	m	class:GaussianCopulaProcess
+fit	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^	def fit(self, X, y,detailed_y_obs=None,obs_noise=None):$/;"	m	class:GaussianCopulaProcess
+fit	gcp_v1.py	/^	def fit(self, X, y):$/;"	m	class:GaussianCopulaProcess
+fit	learning.py	/^    def fit(self, X, y):$/;"	m	class:DSMClassifier
+fit_transform_data_pipeline	learning.py	/^    def fit_transform_data_pipeline(self, X,y):$/;"	m	class:DSMClassifier
+flat_functions	make_features.py	/^import flat_functions$/;"	i
+flat_functions	make_features_base.py	/^import flat_functions$/;"	i
+flat_functions	ntiDSMMakeFeatures.py	/^import flat_functions$/;"	i
+func	agg_functions.py	/^    func = "COUNT"$/;"	v	class:AggCount
+func	agg_functions.py	/^    func = "avg"$/;"	v	class:AggAvg
+func	agg_functions.py	/^    func = "max"$/;"	v	class:AggMax
+func	agg_functions.py	/^    func = "min"$/;"	v	class:AggMin
+func	agg_functions.py	/^    func = "std"$/;"	v	class:AggStd
+func	agg_functions.py	/^    func = "sum"$/;"	v	class:AggSum
+func	agg_functions.py	/^    func = None$/;"	v	class:AggFK
+func	agg_functions.py	/^    func = None$/;"	v	class:AggFuncMySQL
+func	row_functions.py	/^    func = "length"$/;"	v	class:TextLength
+func	row_functions.py	/^    func = "month"$/;"	v	class:Month
+func	row_functions.py	/^    func = "weekday"$/;"	v	class:Weekday
+func	row_functions.py	/^    func = None$/;"	v	class:MysqlRowFunc
+functions	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^functions = {'artificial_f':artificial_f,'branin':branin_f,'har6':har6, 'mnist':mnist_f, 'popcorn':popcorn_f}$/;"	v
+gcp_compute_ei	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^def gcp_compute_ei(x,m,sigma,f_best,Psi,Psi_prim):$/;"	f
+gcp_hpo	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_EI_predictions.py	/^import gcp_hpo.search_utils as utils $/;"	i
+gcp_hpo	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_UCB_predictions.py	/^import gcp_hpo.search_utils as utils $/;"	i
+gcp_hpo	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^import gcp_hpo.experiments$/;"	i
+gcp_hpo	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/display_branin_predictions.py	/^import gcp_hpo.search_utils as utils $/;"	i
+getCurrentTCD	ntiDSMGlobal.py	/^	def getCurrentTCD(self,info=0):$/;"	m	class:ntiDSMGlobal
+getThreadName	ntiDSMGlobal.py	/^	def getThreadName(self):$/;"	m	class:ntiDSMGlobal
+getUserInput	ntiDSMConfigGenerator.py	/^	def getUserInput(self):$/;"	m	class:ntiDSMConfigGenerator
+get_all_cols	filters.py	/^    def get_all_cols(self, include_ignored=True):$/;"	m	class:FilterObject
+get_allowed_cols	row_functions.py	/^    def get_allowed_cols(self):$/;"	m	class:MysqlRowFunc
+get_allowed_cols	row_functions.py	/^    def get_allowed_cols(self, table):$/;"	m	class:Month
+get_allowed_cols	row_functions.py	/^    def get_allowed_cols(self, table):$/;"	m	class:TextLength
+get_allowed_cols	row_functions.py	/^    def get_allowed_cols(self, table):$/;"	m	class:Weekday
+get_applied_filters	column.py	/^    def get_applied_filters(self, include_ignored):$/;"	m	class:DSMColumn
+get_categorical	table.py	/^    def get_categorical(self, max_proportion_unique=.3, min_proportion_unique=0, max_num_unique=10):$/;"	m	class:DSMTable
+get_categorical_filters	table.py	/^    def get_categorical_filters(self):$/;"	m	class:DSMTable
+get_child_tables	table.py	/^    def get_child_tables(self):$/;"	m	class:DSMTable
+get_col_by_name	table.py	/^    def get_col_by_name(self, col_name):$/;"	m	class:DSMTable
+get_col_names	utils.py	/^def get_col_names(table):$/;"	f
+get_column_info	table.py	/^    def get_column_info(self, prefix='', ignore_relationships=False, match_func=None, first=False, set_trace=False, ignore=True):$/;"	m	class:DSMTable
+get_columns_of_type	table.py	/^    def get_columns_of_type(self, datatypes=[], **kwargs):$/;"	m	class:DSMTable
+get_cv_res	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/run_experiment.py	/^  def get_cv_res(p_dict):$/;"	f	function:runExperiment
+get_data	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^def get_data():$/;"	f
+get_distinct_vals	column.py	/^    def get_distinct_vals(self):$/;"	m	class:DSMColumn
+get_dsm_table	database.py	/^    def get_dsm_table(self, db_table):$/;"	m	class:Database
+get_filter_col_set	feature.py	/^    def get_filter_col_set(self):$/;"	m	class:FeatureBase
+get_filter_cols	feature.py	/^    def get_filter_cols(self, include_ignored=True):$/;"	m	class:FeatureBase
+get_functions	agg_functions.py	/^def get_functions():$/;"	f
+get_label	filters.py	/^    def get_label(self):$/;"	m	class:FilterObject
+get_max_min_col_val	column.py	/^    def get_max_min_col_val(self):$/;"	m	class:DSMColumn
+get_num_distinct	table.py	/^    def get_num_distinct(self, cols):$/;"	m	class:DSMTable
+get_numeric_columns	table.py	/^    def get_numeric_columns(self, **kwargs):$/;"	m	class:DSMTable
+get_parent_tables	table.py	/^    def get_parent_tables(self):$/;"	m	class:DSMTable
+get_predictable_features	predict.py	/^def get_predictable_features(table):$/;"	f
+get_primary_key	table.py	/^    def get_primary_key(self):$/;"	m	class:DSMTable
+get_related_fks	database.py	/^    def get_related_fks(self, table):$/;"	m	class:Database
+get_related_tables	table.py	/^    def get_related_tables(self):$/;"	m	class:DSMTable
+get_rows	table.py	/^    def get_rows(self, cols, filter_obj=None, limit=None):$/;"	m	class:DSMTable
+get_rows_as_dict	table.py	/^    def get_rows_as_dict(self, cols,limit=None):$/;"	m	class:DSMTable
+get_usable_features	predict.py	/^def get_usable_features(target_col):$/;"	f
+globalprint	ntiDSMGlobal.py	/^	def globalprint(self,printdict):$/;"	m	class:ntiDSMGlobal
+gp_ompute_ei	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^def gp_ompute_ei(m,sigma,y_best):$/;"	f
+har6	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/har6.py	/^def har6(x):$/;"	f
+har6	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^def har6(x):$/;"	f
+has_column	table.py	/^    def has_column(self, table_name, name):$/;"	m	class:DSMTable
+has_feature	table.py	/^    def has_feature(self, name):$/;"	m	class:DSMTable
+has_table	table.py	/^    def has_table(self, table_name):$/;"	m	class:DSMTable
+hpo_custom_function	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/interface.py	/^def hpo_custom_function():$/;"	f
+hpo_sklearn_pipeline	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/interface.py	/^def hpo_sklearn_pipeline():$/;"	f
+id_col	predict.py	/^    id_col = table.get_col_by_name("enrollment_id")$/;"	v
+importlib	make_features.py	/^import importlib$/;"	i
+importlib	ntiDSMMakeFeatures.py	/^import importlib$/;"	i
+inflect	flat_functions.py	/^import inflect$/;"	i
+init	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^def init():$/;"	f
+init_columns	table.py	/^    def init_columns(self):$/;"	m	class:DSMTable
+init_mappings	DeepMining/gcp.py	/^	def init_mappings(self):$/;"	m	class:GaussianCopulaProcess
+init_mappings	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^	def init_mappings(self):$/;"	m	class:GaussianCopulaProcess
+inspect	make_features.py	/^import inspect$/;"	i
+integrate	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^from scipy import integrate$/;"	i
+integrate	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^from scipy import integrate$/;"	i
+integrate_prediction	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^	def integrate_prediction(self,mu,sigma,x,lb,ub):$/;"	m	class:GaussianCopulaProcess
+integratedPrediction	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^integratedPrediction = False$/;"	v
+isInt	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^isInt = {'artificial_f': False,$/;"	v
+is_classifier	Deep_Mining_github_current_head/DeepMining/gcp_hpo/smart_search.py	/^from sklearn.base import is_classifier, clone$/;"	i
+is_in_2darray	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^def is_in_2darray(item,a):$/;"	f
+is_in_ndarray	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^def is_in_ndarray(item,a):$/;"	f
+is_one_to_one	table.py	/^    def is_one_to_one(self, related, fk):$/;"	m	class:DSMTable
+iterationsNeeded	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/iterations_needed.py	/^def iterationsNeeded(test_name,$/;"	f
+iterationsNeeded	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/utils.py	/^from gcp_hpo.experiments.iterations_needed import iterationsNeeded$/;"	i
+izip	predict.py	/^from itertools import izip$/;"	i
+join_tables	table.py	/^        def join_tables(base_table, join_to, inverse=False):$/;"	f	function:DSMTable.make_full_table_stmt
+json	table.py	/^import json$/;"	i
+kernel_coef	DeepMining/gcp.py	/^			def kernel_coef(x):$/;"	f	function:GaussianCopulaProcess._arg_max_reduced_likelihood_function
+kernel_coef	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^			def kernel_coef(x):$/;"	f	function:GaussianCopulaProcess._arg_max_reduced_likelihood_function
+kernel_coef	gcp_v1.py	/^			def kernel_coef(x):$/;"	f	function:GaussianCopulaProcess._arg_max_reduced_likelihood_function
+l	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^  l = l[1:-3]$/;"	v
+l1_cross_distances	DeepMining/GCP_utils.py	/^def l1_cross_distances(X):$/;"	f
+l1_cross_distances	DeepMining/gcp.py	/^from GCP_utils import find_bounds,binary_search,l1_cross_distances,sq_exponential,exponential_periodic$/;"	i
+l1_cross_distances	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp_utils.py	/^def l1_cross_distances(X):$/;"	f
+l1_cross_distances	gcp_v1.py	/^def l1_cross_distances(X):$/;"	f
+last_exp	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/iterations_needed.py	/^    last_exp = 50$/;"	v
+last_exp	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/transform_param_path.py	/^    last_exp = 50$/;"	v
+linalg	DeepMining/gcp.py	/^from scipy import linalg, optimize$/;"	i
+linalg	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^from scipy import linalg, optimize$/;"	i
+linalg	gcp_v1.py	/^from scipy import linalg, optimize$/;"	i
+linear_model	learning.py	/^from sklearn import linear_model$/;"	i
+listOfList_toArray	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp_utils.py	/^def listOfList_toArray(params,obs):$/;"	f
+load	database.py	/^    def load(filename):$/;"	m	class:Database
+load_data	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/utils.py	/^def load_data(subsize, dir_ = ''):$/;"	f
+load_digits	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/interface.py	/^from sklearn.datasets import load_digits$/;"	i
+load_output	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/transform_param_path.py	/^from gcp_hpo.experiments.utils import load_output$/;"	i
+load_output	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/utils.py	/^def load_output(dir_):$/;"	f
+log	ntiDSMGlobal.py	/^        def log(self,message=None):$/;"	f	function:ntiDSMGlobal.getCurrentTCD
+logIteratorFileObj	make_features.py	/^logIteratorFileObj = open("ntilog\/iterator")$/;"	v
+logIteratorFileObj	make_features.py	/^logIteratorFileObj = open("ntilog\/iterator",'w')$/;"	v
+main	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/branin.py	/^def main():$/;"	f
+main	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/har6.py	/^def main():$/;"	f
+main	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_EI_predictions.py	/^def main():$/;"	f
+main	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_UCB_predictions.py	/^def main():$/;"	f
+main	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/display_branin_predictions.py	/^def main():$/;"	f
+main	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^def main():$/;"	f
+main	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/simple_test.py	/^def main():$/;"	f
+make_agg_features	make_features.py	/^def make_agg_features(db, table, caller, depth):$/;"	f
+make_agg_features	make_features_base.py	/^def make_agg_features(db, table, caller, depth): $/;"	f
+make_agg_features	ntiDSMMakeFeatures.py	/^def make_agg_features(db, table, caller, depth):$/;"	f
+make_all_features	export.py	/^from make_features import make_all_features$/;"	i
+make_all_features	make_features.py	/^def make_all_features(db, table, caller=None, path=[], depth=0):$/;"	f
+make_all_features	make_features_base.py	/^def make_all_features(db, table, caller=None, path=[], depth=0):$/;"	f
+make_all_features	ntiDSMMakeFeatures.py	/^def make_all_features(db, table, caller=None, path=[], depth=0):$/;"	f
+make_all_features	predict.py	/^from make_features import make_all_features$/;"	i
+make_categorical_filters	agg_functions.py	/^def make_categorical_filters(target_table, related_table):$/;"	f
+make_cols	table.py	/^    def make_cols(self):$/;"	m	class:DSMTable
+make_data	predict.py	/^def make_data(target_col, feature_cols, id_col, filter_obj=None, inc_unlabeled=True, cache=False, limit=None):$/;"	f
+make_dsm_table	database.py	/^    def make_dsm_table(self, table):$/;"	m	class:Database
+make_engine	database.py	/^    def make_engine(self, url):$/;"	m	class:Database
+make_flat_features	make_features.py	/^def make_flat_features(db, table, caller, depth):$/;"	f
+make_flat_features	make_features_base.py	/^def make_flat_features(db, table, caller, depth):$/;"	f
+make_flat_features	ntiDSMMakeFeatures.py	/^def make_flat_features(db, table, caller, depth):$/;"	f
+make_full_table_stmt	table.py	/^    def make_full_table_stmt(self, cols=None, filter_obj=None, limit=None):$/;"	m	class:DSMTable
+make_interval_filters	agg_functions.py	/^def make_interval_filters(col, n_intervals, delta):$/;"	f
+make_intervals	agg_functions.py	/^def make_intervals(db, fk, n_intervals=10, delta_days=7):$/;"	f
+make_new_table	table.py	/^    def make_new_table(self):$/;"	m	class:DSMTable
+make_one_to_one_features	make_features.py	/^def make_one_to_one_features(db, table, caller, depth):$/;"	f
+make_one_to_one_features	make_features_base.py	/^def make_one_to_one_features(db, table, caller, depth):$/;"	f
+make_one_to_one_features	ntiDSMMakeFeatures.py	/^def make_one_to_one_features(db, table, caller, depth):$/;"	f
+make_real_name	agg_functions.py	/^    def make_real_name(self, col, fk_name):$/;"	m	class:AggFuncMySQL
+make_real_name	agg_functions.py	/^    def make_real_name(self, fk_name):$/;"	m	class:AggFK
+make_row_features	make_features.py	/^def make_row_features(db ,table, caller, depth):$/;"	f
+make_row_features	make_features_base.py	/^def make_row_features(db ,table, caller, depth):$/;"	f
+make_row_features	ntiDSMMakeFeatures.py	/^def make_row_features(db ,table, caller, depth):$/;"	f
+make_set_qry	column.py	/^def make_set_qry(set_values, join_on_child, join_on_parent):$/;"	f
+make_training_filter	table.py	/^    def make_training_filter(self):$/;"	m	class:DSMTable
+make_where_stmt	feature.py	/^    def make_where_stmt(self, alias=None):$/;"	m	class:FeatureBase
+manhattan_distances	DeepMining/gcp.py	/^from sklearn.metrics.pairwise import manhattan_distances$/;"	i
+manhattan_distances	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^from sklearn.metrics.pairwise import manhattan_distances$/;"	i
+manhattan_distances	gcp_v1.py	/^from sklearn.metrics.pairwise import manhattan_distances$/;"	i
+map	DeepMining/gcp.py	/^			def map(t):$/;"	f	function:GaussianCopulaProcess.mapping_inv
+map	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^			def map(t):$/;"	f	function:GaussianCopulaProcess.mapping_inv
+map	gcp_v1.py	/^		def map(t):$/;"	f	function:GaussianCopulaProcess.mapping_inv
+mapping	DeepMining/gcp.py	/^	def mapping(self,x,t):$/;"	m	class:GaussianCopulaProcess
+mapping	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^	def mapping(self,x,t,normalize=False):$/;"	m	class:GaussianCopulaProcess
+mapping	gcp_v1.py	/^	def mapping(self,t):$/;"	m	class:GaussianCopulaProcess
+mapping_derivative	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^	def mapping_derivative(self,x,t,normalize=False):$/;"	m	class:GaussianCopulaProcess
+mapping_inv	DeepMining/gcp.py	/^	def mapping_inv(self,x,t):$/;"	m	class:GaussianCopulaProcess
+mapping_inv	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^	def mapping_inv(self,x,t):$/;"	m	class:GaussianCopulaProcess
+mapping_inv	gcp_v1.py	/^	def mapping_inv(self,t):$/;"	m	class:GaussianCopulaProcess
+match_func	predict.py	/^    def match_func(col):$/;"	f	function:get_predictable_features
+match_func	predict.py	/^    def match_func(col, target_col=target_col):$/;"	f	function:get_usable_features
+math	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/branin.py	/^import math$/;"	i
+math	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^import math$/;"	i
+math	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^import math$/;"	i
+matplotlib	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/interface.py	/^import matplotlib.pyplot as plt$/;"	i
+matplotlib	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/iterations_needed.py	/^import matplotlib.pyplot as plt$/;"	i
+matplotlib	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/utils.py	/^import matplotlib.pyplot as plt$/;"	i
+matplotlib	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_EI_predictions.py	/^import matplotlib.pyplot as plt$/;"	i
+matplotlib	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_UCB_predictions.py	/^import matplotlib.pyplot as plt$/;"	i
+matplotlib	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/display_branin_predictions.py	/^import matplotlib.pyplot as plt$/;"	i
+matplotlib	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/simple_test.py	/^import matplotlib.pyplot as plt$/;"	i
+max_f_value	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^max_f_value = 1.$/;"	v
+max_vals	ijcai_gcp_data.py	/^max_vals = [(i,max(data[:i])) for i in range(1,len(data))]$/;"	v
+minus_reduced_likelihood_function	DeepMining/gcp.py	/^			def minus_reduced_likelihood_function(x):$/;"	f	function:GaussianCopulaProcess._arg_max_reduced_likelihood_function
+minus_reduced_likelihood_function	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^			def minus_reduced_likelihood_function(x):$/;"	f	function:GaussianCopulaProcess._arg_max_reduced_likelihood_function
+minus_reduced_likelihood_function	gcp_v1.py	/^			def minus_reduced_likelihood_function(x):$/;"	f	function:GaussianCopulaProcess._arg_max_reduced_likelihood_function
+mnist_KNN	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^mnist_KNN = NearestNeighbors()$/;"	v
+mnist_f	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^def mnist_f(p):$/;"	f
+mnist_output	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^mnist_output = []$/;"	v
+mnist_params	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^mnist_params = np.genfromtxt((dir_ + "\/MNIST\/scoring_function\/params.csv"),delimiter=',')$/;"	v
+model	predict.py	/^def model(id_col, target_col, feature_cols, params={}, choose_params = None, filter_obj=None, outfile=None, header=None, convert_id_func=None, test_ids_file=None, id_type=int):$/;"	f
+model_dir	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/iterations_needed.py	/^    model_dir = "rand\/5000"$/;"	v
+model_dir	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/transform_param_path.py	/^    model_dir = "rand\/5000"$/;"	v
+model_name	post_process.py	/^    model_name = "donorschoose__" + table_name$/;"	v
+model_name	predict.py	/^    model_name = "kdd2015__" + table_name$/;"	v
+model_name	predict.py	/^    model_name = "kdd2015_akaur_test_train1__Enrollments"$/;"	v
+mysql	agg_functions.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+mysql	make_features.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+mysql	make_features_base.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+mysql	ntiDSMConfigGenerator.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+mysql	ntiDSMMakeFeatures.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+mysql	row_functions.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+mysql	table.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+n	make_features.py	/^    print("\\nTrying to import the config file\\n")$/;"	i
+n	ntiDSMMakeFeatures.py	/^    print("\\nTrying to import the config file\\n")$/;"	i
+n_clusters_max	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^n_clusters_max = 3$/;"	v
+n_test	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^    n_test = int(sys.argv[1])$/;"	v
+n_tests	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^n_tests = 20$/;"	v
+name	agg_functions.py	/^    name = "AggFuncBase"$/;"	v	class:AggFuncBase
+name	agg_functions.py	/^    name = "Avg"$/;"	v	class:AggAvg
+name	agg_functions.py	/^    name = "Max"$/;"	v	class:AggMax
+name	agg_functions.py	/^    name = "Min"$/;"	v	class:AggMin
+name	agg_functions.py	/^    name = "Std"$/;"	v	class:AggStd
+name	agg_functions.py	/^    name = "Sum"$/;"	v	class:AggSum
+name	agg_functions.py	/^    name ="AggCount"$/;"	v	class:AggCount
+name	agg_functions.py	/^    name ="AggFuncMySQL"$/;"	v	class:AggFK
+name	agg_functions.py	/^    name ="AggFuncMySQL"$/;"	v	class:AggFuncMySQL
+name	row_functions.py	/^    name = "MysqlRowFunc"$/;"	v	class:MysqlRowFunc
+name	row_functions.py	/^    name = "month"$/;"	v	class:Month
+name	row_functions.py	/^    name = "text_length"$/;"	v	class:TextLength
+name	row_functions.py	/^    name = "weekday"$/;"	v	class:Weekday
+names_to_cols	table.py	/^    def names_to_cols(self, names):$/;"	m	class:DSMTable
+newIteratorValue	make_features.py	/^newIteratorValue = int(logIteratorFileObj.read().strip()) + 1$/;"	v
+noisy_branin	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/branin.py	/^def noisy_branin(x, y):$/;"	f
+norm	DeepMining/gcp.py	/^from scipy.stats import norm$/;"	i
+norm	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^from scipy.stats import norm$/;"	i
+norm	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^from scipy.stats import norm$/;"	i
+norm	gcp_v1.py	/^from scipy.stats import norm$/;"	i
+np	DeepMining/GCP_utils.py	/^import numpy as np$/;"	i
+np	DeepMining/Test/Kaggle Bags of Popcorn/KaggleWord2VecUtility.py	/^import numpy as np$/;"	i
+np	DeepMining/gcp.py	/^import numpy as np$/;"	i
+np	DeepMining/sampling_utils.py	/^import numpy as np$/;"	i
+np	DeepMining/sklearn_utils.py	/^import numpy as np$/;"	i
+np	DeepMining/smart_sampling.py	/^import numpy as np$/;"	i
+np	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/branin.py	/^import numpy as np$/;"	i
+np	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/har6.py	/^import numpy as np$/;"	i
+np	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/interface.py	/^import numpy as np$/;"	i
+np	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^import numpy as np$/;"	i
+np	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/iterations_needed.py	/^import numpy as np$/;"	i
+np	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/run_experiment.py	/^import numpy as np$/;"	i
+np	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/transform_param_path.py	/^import numpy as np$/;"	i
+np	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/utils.py	/^import numpy as np$/;"	i
+np	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^import numpy as np$/;"	i
+np	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp_utils.py	/^import numpy as np$/;"	i
+np	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^import numpy as np$/;"	i
+np	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^import numpy as np$/;"	i
+np	Deep_Mining_github_current_head/DeepMining/gcp_hpo/smart_search.py	/^import numpy as np$/;"	i
+np	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_EI_predictions.py	/^import numpy as np$/;"	i
+np	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_UCB_predictions.py	/^import numpy as np$/;"	i
+np	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^import numpy as np$/;"	i
+np	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/display_branin_predictions.py	/^import numpy as np$/;"	i
+np	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^import numpy as np$/;"	i
+np	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/simple_test.py	/^import numpy as np$/;"	i
+np	export.py	/^import numpy as np$/;"	i
+np	gcp_v1.py	/^import numpy as np$/;"	i
+np	learning.py	/^import numpy as np$/;"	i
+np	make_features.py	/^import numpy as np$/;"	i
+np	make_features_base.py	/^import numpy as np$/;"	i
+np	ntiDSMMakeFeatures.py	/^import numpy as np$/;"	i
+np	post_process.py	/^import numpy as np$/;"	i
+np	predict.py	/^import numpy as np$/;"	i
+ntiDSM	ntiDSM.py	/^class ntiDSM:$/;"	c
+ntiDSMConfigGenerator	ntiDSM.py	/^from ntiDSMConfigGenerator import ntiDSMConfigGenerator$/;"	i
+ntiDSMConfigGenerator	ntiDSMConfigGenerator.py	/^class ntiDSMConfigGenerator:$/;"	c
+ntiDSMEngine	ntiDSM.py	/^import ntiDSMMakeFeatures as ntiDSMEngine$/;"	i
+ntiDSMGlobal	ntiDSMGlobal.py	/^class ntiDSMGlobal:$/;"	c
+ntiDSMGlobalObj	ntiDSMGlobal.py	/^ntiDSMGlobalObj = __globalinit()$/;"	v
+ntiDSMStartFeatureGenEngine	ntiDSMMakeFeatures.py	/^def ntiDSMStartFeatureGenEngine(database_name=None,user_input_config=None):$/;"	f
+ntiGlb	agg_functions.py	/^import ntiDSMGlobal as ntiGlb$/;"	i
+ntiGlb	database.py	/^import ntiDSMGlobal as ntiGlb$/;"	i
+ntiGlb	flat_functions.py	/^import ntiDSMGlobal as ntiGlb$/;"	i
+ntiGlb	make_features.py	/^import ntiDSMGlobal as ntiGlb$/;"	i
+ntiGlb	ntiDSM.py	/^import ntiDSMGlobal as ntiGlb$/;"	i
+ntiGlb	ntiDSMConfigGenerator.py	/^import ntiDSMGlobal as ntiGlb$/;"	i
+ntiGlb	ntiDSMMakeFeatures.py	/^import ntiDSMGlobal as ntiGlb$/;"	i
+ntiGlb	row_functions.py	/^import ntiDSMGlobal as ntiGlb$/;"	i
+ntiGlb	table.py	/^import ntiDSMGlobal as ntiGlb$/;"	i
+nugget	DeepMining/sampling_utils.py	/^nugget = 0.00001\/1000.$/;"	v
+nugget	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^nugget = 1.e-10$/;"	v
+numbers	DeepMining/sklearn_utils.py	/^import numbers$/;"	i
+numbers	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^import numbers$/;"	i
+numbers	gcp_v1.py	/^import numbers$/;"	i
+numeric	row_functions.py	/^    numeric = False$/;"	v	class:Month
+numeric	row_functions.py	/^    numeric = False$/;"	v	class:MysqlRowFunc
+numeric	row_functions.py	/^    numeric = False$/;"	v	class:Weekday
+numeric	row_functions.py	/^    numeric = True$/;"	v	class:TextLength
+optimize	DeepMining/gcp.py	/^from scipy import linalg, optimize$/;"	i
+optimize	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^from scipy import linalg, optimize$/;"	i
+optimize	gcp_v1.py	/^from scipy import linalg, optimize$/;"	i
+os	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^import os$/;"	i
+os	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/iterations_needed.py	/^import os$/;"	i
+os	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/run_experiment.py	/^import os$/;"	i
+os	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/transform_param_path.py	/^import os$/;"	i
+os	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_EI_predictions.py	/^import os$/;"	i
+os	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_UCB_predictions.py	/^import os$/;"	i
+os	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^import os$/;"	i
+os	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^import os$/;"	i
+os	export.py	/^    import os$/;"	i
+os	make_features.py	/^import os$/;"	i
+os	make_features_base.py	/^import os$/;"	i
+os	ntiDSMConfigGenerator.py	/^import os$/;"	i
+os	ntiDSMGlobal.py	/^import os$/;"	i
+os	ntiDSMMakeFeatures.py	/^import os$/;"	i
+os	predict.py	/^    import os$/;"	i
+os	predict.py	/^import os$/;"	i
+p	flat_functions.py	/^p = inflect.engine()$/;"	v
+parameters	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^parameters = {'nb_features' : ['int', [1000, 40000]],$/;"	v
+params	learning.py	/^    params = {$/;"	v	class:DSMClassifier
+params	predict.py	/^    params = OrderedDict()$/;"	v
+params	predict.py	/^    params = model(id_col,target_col,feature_cols, params=params, outfile="kdd2015_predict", test_ids_file=".\/datasets\/kdd2015\/test_ids.csv", id_type=int)$/;"	v
+path_file	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/iterations_needed.py	/^                         path_file = path_file)$/;"	v
+path_file	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/iterations_needed.py	/^    path_file = "path"$/;"	v
+pd	DeepMining/Test/Kaggle Bags of Popcorn/KaggleWord2VecUtility.py	/^import pandas as pd$/;"	i
+pd	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^import pandas as pd$/;"	i
+pdb	agg_functions.py	/^import pdb$/;"	i
+pdb	database.py	/^import pdb$/;"	i
+pdb	export.py	/^import pdb$/;"	i
+pdb	flat_functions.py	/^import pdb$/;"	i
+pdb	learning.py	/^import pdb$/;"	i
+pdb	make_features.py	/^import pdb$/;"	i
+pdb	make_features_base.py	/^import pdb$/;"	i
+pdb	ntiDSMMakeFeatures.py	/^import pdb$/;"	i
+pdb	post_process.py	/^import pdb$/;"	i
+pdb	predict.py	/^import pdb$/;"	i
+pdb	table.py	/^import pdb$/;"	i
+pickle	predict.py	/^import cPickle as pickle$/;"	i
+plt	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/interface.py	/^import matplotlib.pyplot as plt$/;"	i
+plt	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/iterations_needed.py	/^import matplotlib.pyplot as plt$/;"	i
+plt	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/utils.py	/^import matplotlib.pyplot as plt$/;"	i
+plt	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_EI_predictions.py	/^import matplotlib.pyplot as plt$/;"	i
+plt	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_UCB_predictions.py	/^import matplotlib.pyplot as plt$/;"	i
+plt	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/display_branin_predictions.py	/^import matplotlib.pyplot as plt$/;"	i
+plt	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/simple_test.py	/^import matplotlib.pyplot as plt$/;"	i
+popcorn_KNN	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^popcorn_KNN = NearestNeighbors()$/;"	v
+popcorn_f	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^def popcorn_f(p):$/;"	f
+popcorn_output	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^popcorn_output = []$/;"	v
+popcorn_params	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^popcorn_params = np.genfromtxt((dir_ + "\/Bags_of_Popcorn\/scoring_function\/params.csv"),delimiter=',')$/;"	v
+predict	DeepMining/gcp.py	/^	def predict(self, X, eval_MSE=False, eval_confidence_bounds=False,upperBoundCoef=1.96, batch_size=None):$/;"	m	class:GaussianCopulaProcess
+predict	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^	def predict(self, X, eval_MSE=False, transformY=True, returnRV=False, integratedPrediction= False, eval_confidence_bounds=False,coef_bound=1.96, batch_size=None):$/;"	m	class:GaussianCopulaProcess
+predict	gcp_v1.py	/^	def predict(self, X, eval_MSE=False, batch_size=None):$/;"	m	class:GaussianCopulaProcess
+predict	post_process.py	/^import predict$/;"	i
+predict_proba	learning.py	/^    def predict_proba(self, X):$/;"	m	class:DSMClassifier
+predicted_RV	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^	def predicted_RV(self,mu,sigma,x):$/;"	m	class:GaussianCopulaProcess
+prediction_sizes	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^prediction_sizes = {'artificial_f': [1000],$/;"	v
+prefix_name	column.py	/^    def prefix_name(self, prefix):$/;"	m	class:DSMColumn
+preprocessing	learning.py	/^from sklearn import preprocessing$/;"	i
+preprocessing	predict.py	/^from sklearn import preprocessing$/;"	i
+print_cols_names	debug.py	/^def print_cols_names(table):$/;"	f
+print_function	DeepMining/gcp.py	/^from __future__ import print_function$/;"	i
+print_function	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^from __future__ import print_function$/;"	i
+print_function	gcp_v1.py	/^from __future__ import print_function$/;"	i
+print_utils_parameters	DeepMining/sampling_utils.py	/^def print_utils_parameters():$/;"	f
+printdict	ntiDSMGlobal.py	/^	def printdict(self,mydict,depth=1,finalOutput=None,stringAware=False):$/;"	m	class:ntiDSMGlobal
+profile	make_features.py	/^import profile$/;"	i
+profile	make_features_base.py	/^import profile$/;"	i
+profile	ntiDSMMakeFeatures.py	/^import profile$/;"	i
+randint	DeepMining/sampling_utils.py	/^from random import randint, randrange$/;"	i
+randint	DeepMining/smart_sampling.py	/^from random import randint, randrange$/;"	i
+randint	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^from random import randint, randrange$/;"	i
+randint	Deep_Mining_github_current_head/DeepMining/gcp_hpo/smart_search.py	/^from random import randint, randrange$/;"	i
+random	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^import random$/;"	i
+random	learning.py	/^import random$/;"	i
+random	predict.py	/^import random$/;"	i
+randrange	DeepMining/sampling_utils.py	/^from random import randint, randrange$/;"	i
+randrange	DeepMining/smart_sampling.py	/^from random import randint, randrange$/;"	i
+randrange	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^from random import randint, randrange$/;"	i
+randrange	Deep_Mining_github_current_head/DeepMining/gcp_hpo/smart_search.py	/^from random import randint, randrange$/;"	i
+re	DeepMining/Test/Kaggle Bags of Popcorn/KaggleWord2VecUtility.py	/^import re$/;"	i
+re	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^import re$/;"	i
+re	make_features.py	/^import re$/;"	i
+re	ntiDSMConfigGenerator.py	/^import re$/;"	i
+re	ntiDSMMakeFeatures.py	/^import re$/;"	i
+reduced_likelihood_function	DeepMining/gcp.py	/^	def reduced_likelihood_function(self, theta=None,verb=False):$/;"	m	class:GaussianCopulaProcess
+reduced_likelihood_function	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^	def reduced_likelihood_function(self, theta=None):$/;"	m	class:GaussianCopulaProcess
+reduced_likelihood_function	gcp_v1.py	/^	def reduced_likelihood_function(self, theta=None,verb=False):$/;"	m	class:GaussianCopulaProcess
+ref_size	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/iterations_needed.py	/^    ref_size = 15000$/;"	v
+regression	DeepMining/gcp.py	/^from sklearn.gaussian_process import regression_models as regression$/;"	i
+regression	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^from sklearn.gaussian_process import regression_models as regression$/;"	i
+regression	gcp_v1.py	/^from sklearn.gaussian_process import regression_models as regression$/;"	i
+reshape_cluster_labels	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp_utils.py	/^def reshape_cluster_labels(labels,detailed_X):$/;"	f
+review_to_sentences	DeepMining/Test/Kaggle Bags of Popcorn/KaggleWord2VecUtility.py	/^    def review_to_sentences( review, tokenizer, remove_stopwords=False ):$/;"	m	class:KaggleWord2VecUtility
+review_to_wordlist	DeepMining/Test/Kaggle Bags of Popcorn/KaggleWord2VecUtility.py	/^    def review_to_wordlist( review, remove_stopwords=False ):$/;"	m	class:KaggleWord2VecUtility
+review_to_wordlist	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^def review_to_wordlist(review):$/;"	f
+reweight	learning.py	/^    def reweight(self, y, reweight_ratio):$/;"	m	class:DSMClassifier
+roc_auc_score	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^from sklearn.metrics import roc_auc_score$/;"	i
+roc_auc_score	learning.py	/^from sklearn.metrics import roc_auc_score$/;"	i
+row_functions	make_features.py	/^import row_functions$/;"	i
+row_functions	make_features_base.py	/^import row_functions$/;"	i
+row_functions	ntiDSMMakeFeatures.py	/^import row_functions$/;"	i
+runExperiment	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/run_experiment.py	/^def runExperiment(first_exp,$/;"	f
+run_test	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^def run_test(training_size,prediction_size,function_name,corr_kernel,n_cluster,prior='GCP'):$/;"	f
+safe_asarray	DeepMining/sklearn_utils.py	/^def safe_asarray(X, dtype=None, order=None, copy=False, force_all_finite=True):$/;"	f
+safe_asarray	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^def safe_asarray(X, dtype=None, order=None, copy=False, force_all_finite=True):$/;"	f
+safe_asarray	gcp_v1.py	/^def safe_asarray(X, dtype=None, order=None, copy=False, force_all_finite=True):$/;"	f
+safe_copy	DeepMining/sklearn_utils.py	/^from sklearn.utils.fixes import safe_copy$/;"	i
+safe_copy	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^from sklearn.utils.fixes import safe_copy$/;"	i
+sample_candidates	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^def sample_candidates(n_candidates,param_bounds,param_isInt):$/;"	f
+sample_random_candidates	DeepMining/sampling_utils.py	/^def sample_random_candidates(nb_parameter_sampling,parameter_bounds,isInt):$/;"	f
+sample_random_candidates	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^def sample_random_candidates(n_candidates,parameter_bounds,data_size_bounds,isInt):$/;"	f
+sample_random_candidates_for_init	Deep_Mining_github_current_head/DeepMining/gcp_hpo/search_utils.py	/^def sample_random_candidates_for_init(n_candidates,parameter_bounds,data_size_bounds,isInt):$/;"	f
+save	database.py	/^    def save(self, filename):$/;"	m	class:Database
+save_data	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^save_data = False$/;"	v
+scale	learning.py	/^from sklearn.preprocessing import scale$/;"	i
+scale	predict.py	/^from sklearn.preprocessing import scale$/;"	i
+scipy	DeepMining/sklearn_utils.py	/^import scipy.sparse as sp$/;"	i
+scipy	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^import scipy.sparse as sp$/;"	i
+scipy	gcp_v1.py	/^import scipy.sparse as sp$/;"	i
+score	Deep_Mining_github_current_head/DeepMining/gcp_hpo/smart_search.py	/^	def score(self,test_parameter):$/;"	m	class:SmartSearch
+score	learning.py	/^    def score(self, X, y):$/;"	m	class:DSMClassifier
+score_distribution	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/utils.py	/^def score_distribution(subsize, dir_ = ''):$/;"	f
+scoring	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^    def scoring(parameters):$/;"	f
+scoring_function	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/branin.py	/^def scoring_function(p_dict):$/;"	f
+scoring_function	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/har6.py	/^def scoring_function(p_dict):$/;"	f
+scoring_function	Deep_Mining_github_current_head/DeepMining/gcp_hpo/examples/interface.py	/^    def scoring_function(x):$/;"	f	function:hpo_custom_function
+scoring_function	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^def scoring_function(parameters, data, Y, sub_size_):$/;"	f
+scoring_function	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_EI_predictions.py	/^def scoring_function(x):$/;"	f
+scoring_function	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_UCB_predictions.py	/^def scoring_function(x):$/;"	f
+scoring_function	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/simple_test.py	/^def scoring_function(x):$/;"	f
+scoring_function	predict.py	/^    def scoring_function(params_array):$/;"	f	function:choose_model_params
+scoring_function_cv	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^def scoring_function_cv(subsample_clean_reviews, Y, parameters):$/;"	f
+search	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^    search = SmartSearch(estimator = scoring,$/;"	v
+sessionmaker	database.py	/^from sqlalchemy.orm import sessionmaker$/;"	i
+sessionmaker	table.py	/^from sqlalchemy.orm import sessionmaker$/;"	i
+setCurrentTCD	ntiDSMGlobal.py	/^	def setCurrentTCD(self,table,caller=None,depth=1):$/;"	m	class:ntiDSMGlobal
+set_db	table.py	/^    def set_db(self, db):$/;"	m	class:DSMTable
+show_cumul_score	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/utils.py	/^def show_cumul_score(test_name, first_exp, last_exp, models, ref_size, path_file = "path"):$/;"	f
+show_iter_needed	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/utils.py	/^def show_iter_needed(test_name, first_exp, last_exp, models, ref_size, path_file = "path"):$/;"	f
+six	DeepMining/sklearn_utils.py	/^from sklearn.externals import six$/;"	i
+six	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/utils.py	/^import six$/;"	i
+six	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^from sklearn.externals import six$/;"	i
+sk_utils	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^import sklearn_utils as sk_utils$/;"	i
+sk_utils	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp_utils.py	/^import sklearn_utils as sk_utils$/;"	i
+smartSampling	DeepMining/smart_sampling.py	/^def smartSampling(nb_iter,$/;"	f
+smartSampling	predict.py	/^from DeepMining.smart_sampling import smartSampling$/;"	i
+sp	DeepMining/sklearn_utils.py	/^import scipy.sparse as sp$/;"	i
+sp	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^import scipy.sparse as sp$/;"	i
+sp	gcp_v1.py	/^import scipy.sparse as sp$/;"	i
+sparse	learning.py	/^from scipy import sparse$/;"	i
+sparse	predict.py	/^from scipy import sparse$/;"	i
+split_data	predict.py	/^def split_data(x,y, ids, test_ids_file, id_type=int):$/;"	f
+sq_exponential	DeepMining/GCP_utils.py	/^def sq_exponential(theta,d):$/;"	f
+sq_exponential	DeepMining/gcp.py	/^from GCP_utils import find_bounds,binary_search,l1_cross_distances,sq_exponential,exponential_periodic$/;"	i
+sq_exponential	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp_utils.py	/^def sq_exponential(theta,d):$/;"	f
+sq_exponential	gcp_v1.py	/^def sq_exponential(theta,d):$/;"	f
+sqlalchemy	agg_functions.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+sqlalchemy	make_features.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+sqlalchemy	make_features_base.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+sqlalchemy	ntiDSMConfigGenerator.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+sqlalchemy	ntiDSMMakeFeatures.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+sqlalchemy	row_functions.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+sqlalchemy	table.py	/^import sqlalchemy.dialects.mysql.base as column_datatypes$/;"	i
+stats	DeepMining/gcp.py	/^from scipy import stats$/;"	i
+stats	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^from scipy import stats$/;"	i
+stats	gcp_v1.py	/^from scipy import stats$/;"	i
+string_l	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/function_utils.py	/^  string_l = l.split(',')$/;"	v
+sub_size	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^    sub_size = int(sys.argv[2])$/;"	v
+sys	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/SentimentAnalysis/precompute_scoring.py	/^import sys$/;"	i
+sys	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/run_experiment.py	/^import sys$/;"	i
+sys	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^import sys$/;"	i
+sys	make_features.py	/^import sys$/;"	i
+sys	ntiDSMConfigGenerator.py	/^import sys$/;"	i
+sys	ntiDSMMakeFeatures.py	/^import sys$/;"	i
+sys	predict.py	/^import sys$/;"	i
+table	post_process.py	/^    table = db.tables[table_name]$/;"	v
+table	predict.py	/^    table = db.tables[table_name]$/;"	v
+table_name	export.py	/^    table_name = "Products"$/;"	v
+table_name	post_process.py	/^    table_name = "Projects"$/;"	v
+table_name	predict.py	/^    table_name = "Enrollments"$/;"	v
+target_col	post_process.py	/^    target_col = table.get_col_by_name("Outcome.is_exciting")$/;"	v
+target_col	predict.py	/^    target_col = table.get_col_by_name("Outcome.dropped_out")$/;"	v
+test_name	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/iterations_needed.py	/^    test_name = "SentimentAnalysis"$/;"	v
+test_name	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/transform_param_path.py	/^    test_name = "SentimentAnalysis"$/;"	v
+tests	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^tests = {'function' : ['har6'],$/;"	v
+text	table.py	/^from sqlalchemy import text$/;"	i
+the	make_features.py	/^    print("\\nTrying to import the config file\\n")$/;"	i
+the	ntiDSMMakeFeatures.py	/^    print("\\nTrying to import the config file\\n")$/;"	i
+theta_backToRealShape	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp_utils.py	/^def theta_backToRealShape(theta_1dim,theta_shape):$/;"	f
+theta_toOneDim	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp_utils.py	/^def theta_toOneDim(theta):$/;"	f
+threading	agg_functions.py	/^import threading$/;"	i
+threading	database.py	/^import threading$/;"	i
+threading	learning.py	/^import threading$/;"	i
+threading	make_features.py	/^import threading$/;"	i
+threading	make_features_base.py	/^import threading$/;"	i
+threading	ntiDSMMakeFeatures.py	/^import threading$/;"	i
+threading	predict.py	/^import threading$/;"	i
+threading	table.py	/^import threading$/;"	i
+time	predict.py	/^from time import time$/;"	i
+timedelta	agg_functions.py	/^from datetime import timedelta$/;"	i
+to_where_statement	filters.py	/^    def to_where_statement(self, alias=None):$/;"	m	class:FilterObject
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/examples/branin.m.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/examples/har6.m.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/examples/index.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/examples/interface.m.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/experiments/index.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/experiments/iterations_needed.m.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/experiments/run_experiment.m.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/gcp/gcp.m.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/gcp/gcp_utils.m.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/gcp/index.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/gcp/sklearn_utils.m.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/index.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/search_utils.m.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/smart_search.m.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/test/acquisition_functions/display_EI_predictions.m.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/test/acquisition_functions/display_UCB_predictions.m.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/test/acquisition_functions/index.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/test/function_utils.m.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/test/index.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/test/regression/display_branin_predictions.m.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/test/regression/full_test.m.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/test/regression/index.html	/^  function toggle(id, $link) {$/;"	f
+toggle	Deep_Mining_github_current_head/DeepMining/gcp_hpo/doc/gcp_hpo/test/regression/simple_test.m.html	/^  function toggle(id, $link) {$/;"	f
+train_test_split	learning.py	/^from sklearn.cross_validation import train_test_split, cross_val_score$/;"	i
+train_test_split	post_process.py	/^from sklearn.cross_validation import train_test_split$/;"	i
+train_test_split	predict.py	/^from sklearn.cross_validation import train_test_split$/;"	i
+training_sizes	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/full_test.py	/^training_sizes = {'artificial_f': [30,40,50,60,70,80],$/;"	v
+transformPath	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/transform_param_path.py	/^def transformPath(test_name,$/;"	f
+transform_data_pipeline	learning.py	/^    def transform_data_pipeline(self,X):$/;"	m	class:DSMClassifier
+tree	predict.py	/^from sklearn import tree$/;"	i
+update_copula_params	DeepMining/gcp.py	/^	def update_copula_params(self):$/;"	m	class:GaussianCopulaProcess
+update_copula_params	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/gcp.py	/^	def update_copula_params(self):$/;"	m	class:GaussianCopulaProcess
+update_copula_params	gcp_v1.py	/^	def update_copula_params(self):$/;"	m	class:GaussianCopulaProcess
+update_metadata	column.py	/^    def update_metadata(self, update):$/;"	m	class:DSMColumn
+utils	Deep_Mining_github_current_head/DeepMining/gcp_hpo/smart_search.py	/^import search_utils as utils $/;"	i
+utils	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_EI_predictions.py	/^import gcp_hpo.search_utils as utils $/;"	i
+utils	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/acquisition_functions/display_UCB_predictions.py	/^import gcp_hpo.search_utils as utils $/;"	i
+utils	Deep_Mining_github_current_head/DeepMining/gcp_hpo/test/regression/display_branin_predictions.py	/^import gcp_hpo.search_utils as utils $/;"	i
+utils	debug.py	/^import utils$/;"	i
+vector_to_dict	Deep_Mining_github_current_head/DeepMining/gcp_hpo/smart_search.py	/^	def vector_to_dict(self,vector_parameter):$/;"	m	class:SmartSearch
+warn_if_not_float	DeepMining/sklearn_utils.py	/^def warn_if_not_float(X, estimator='This algorithm'):$/;"	f
+warn_if_not_float	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^def warn_if_not_float(X, estimator='This algorithm'):$/;"	f
+warn_if_not_float	gcp_v1.py	/^def warn_if_not_float(X, estimator='This algorithm'):$/;"	f
+warnings	DeepMining/sklearn_utils.py	/^import warnings$/;"	i
+warnings	Deep_Mining_github_current_head/DeepMining/gcp_hpo/gcp/sklearn_utils.py	/^import warnings$/;"	i
+warnings	gcp_v1.py	/^import warnings$/;"	i
+warnings	learning.py	/^import warnings$/;"	i
+warnings	predict.py	/^import warnings$/;"	i
+write_predictions	predict.py	/^def write_predictions(test_x, test_ids, clf, outfile, header=None, convert_id_func=None, name=""):$/;"	f
+yaml	Deep_Mining_github_current_head/DeepMining/gcp_hpo/experiments/run_experiment.py	/^import yaml$/;"	i

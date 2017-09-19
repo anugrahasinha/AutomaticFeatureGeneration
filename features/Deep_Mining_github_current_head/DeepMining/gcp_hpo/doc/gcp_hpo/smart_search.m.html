@@ -1,0 +1,2776 @@
+<!doctype html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+    <title>gcp_hpo.smart_search API documentation</title>
+    <meta name="description" content="Hyper-parameter optimization through randomized search, GP-based, and GCP-based." />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
+  
+  <style type="text/css">
+  
+* {
+  box-sizing: border-box;
+}
+/*! normalize.css v1.1.1 | MIT License | git.io/normalize */
+
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+ * Known issue: no IE 6 support.
+ */
+
+[hidden] {
+    display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/**
+ * 1. Prevent system color scheme's background color being used in Firefox, IE,
+ *    and Opera.
+ * 2. Prevent system color scheme's text color being used in Firefox, IE, and
+ *    Opera.
+ * 3. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 4. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+    background: #fff; /* 1 */
+    color: #000; /* 2 */
+    font-size: 100%; /* 3 */
+    -webkit-text-size-adjust: 100%; /* 4 */
+    -ms-text-size-adjust: 100%; /* 4 */
+}
+
+/**
+ * Address `font-family` inconsistency between `textarea` and other form
+ * elements.
+ */
+
+html,
+button,
+input,
+select,
+textarea {
+    font-family: sans-serif;
+}
+
+/**
+ * Address margins handled incorrectly in IE 6/7.
+ */
+
+body {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {
+    outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/**
+ * Address font sizes and margins set differently in IE 6/7.
+ * Address font sizes within `section` and `article` in Firefox 4+, Safari 5,
+ * and Chrome.
+ */
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+}
+
+h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+}
+
+h4 {
+    font-size: 1em;
+    margin: 1.33em 0;
+}
+
+h5 {
+    font-size: 0.83em;
+    margin: 1.67em 0;
+}
+
+h6 {
+    font-size: 0.67em;
+    margin: 2.33em 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Safari 5, and Chrome.
+ */
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
+ */
+
+b,
+strong {
+    font-weight: bold;
+}
+
+blockquote {
+    margin: 1em 40px;
+}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+
+dfn {
+    font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ * Known issue: no IE 6/7 normalization.
+ */
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 6/7/8/9.
+ */
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+p,
+pre {
+    margin: 1em 0;
+}
+
+/**
+ * Correct font family set oddly in IE 6, Safari 4/5, and Chrome.
+ */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    _font-family: 'courier new', monospace;
+    font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/**
+ * Address CSS quotes not supported in IE 6/7.
+ */
+
+q {
+    quotes: none;
+}
+
+/**
+ * Address `quotes` property not supported in Safari 4.
+ */
+
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+    font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+dl,
+menu,
+ol,
+ul {
+    margin: 1em 0;
+}
+
+dd {
+    margin: 0 0 0 40px;
+}
+
+/**
+ * Address paddings set differently in IE 6/7.
+ */
+
+menu,
+ol,
+ul {
+    padding: 0 0 0 40px;
+}
+
+/**
+ * Correct list images handled incorrectly in IE 7.
+ */
+
+nav ul,
+nav ol {
+    list-style: none;
+    list-style-image: none;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+
+/**
+ * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+ * 2. Improve image quality when scaled in IE 7.
+ */
+
+img {
+    border: 0; /* 1 */
+    -ms-interpolation-mode: bicubic; /* 2 */
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+ */
+
+figure {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+/**
+ * Correct margin displayed oddly in IE 6/7.
+ */
+
+form {
+    margin: 0;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct color not being inherited in IE 6/7/8/9.
+ * 2. Correct text not wrapping in Firefox 3.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+
+legend {
+    border: 0; /* 1 */
+    padding: 0;
+    white-space: normal; /* 2 */
+    *margin-left: -7px; /* 3 */
+}
+
+/**
+ * 1. Correct font size not being inherited in all browsers.
+ * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improve appearance and consistency in all browsers.
+ */
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%; /* 1 */
+    margin: 0; /* 2 */
+    vertical-align: baseline; /* 3 */
+    *vertical-align: middle; /* 3 */
+}
+
+/**
+ * Address Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button,
+input {
+    line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+
+button,
+select {
+    text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+    *overflow: visible;  /* 4 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to content-box in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+    *height: 13px; /* 3 */
+    *width: 13px; /* 3 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 3+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 6/7/8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+  </style>
+
+  <style type="text/css">
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  body {
+    background: #fff;
+    font-family: "Source Sans Pro", "Helvetica Neueue", Helvetica, sans;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.6em;
+  }
+  #content {
+    width: 70%;
+    max-width: 850px;
+    float: left;
+    padding: 30px 60px;
+    border-left: 1px solid #ddd;
+  }
+  #sidebar {
+    width: 25%;
+    float: left;
+    padding: 30px;
+    overflow: hidden;
+  }
+  #nav {
+    font-size: 130%;
+    margin: 0 0 15px 0;
+  }
+
+  #top {
+    display: block;
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    font-size: .85em;
+    text-transform: uppercase;
+  }
+
+  #footer {
+    font-size: .75em;
+    padding: 5px 30px;
+    border-top: 1px solid #ddd;
+    text-align: right;
+  }
+    #footer p {
+      margin: 0 0 0 30px;
+      display: inline-block;
+    }
+
+  h1, h2, h3, h4, h5 {
+    font-weight: 300;
+  }
+  h1 {
+    font-size: 2.5em;
+    line-height: 1.1em;
+    margin: 0 0 .50em 0;
+  }
+
+  h2 {
+    font-size: 1.75em;
+    margin: 1em 0 .50em 0;
+  }
+
+  h3 {
+    margin: 25px 0 10px 0;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 105%;
+  }
+
+  a {
+    color: #058;
+    text-decoration: none;
+    transition: color .3s ease-in-out;
+  }
+
+  a:hover {
+    color: #e08524;
+    transition: color .3s ease-in-out;
+  }
+
+  pre, code, .mono, .name {
+    font-family: "Ubuntu Mono", "Cousine", "DejaVu Sans Mono", monospace;
+  }
+
+  .title .name {
+    font-weight: bold;
+  }
+  .section-title {
+    margin-top: 2em;
+  }
+  .ident {
+    color: #900;
+  }
+
+  code {
+    background: #f9f9f9;
+  } 
+
+  pre {
+    background: #fefefe;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 0 #f3f3f3;
+    margin: 0 30px;
+    padding: 15px 30px;
+  }
+
+  .codehilite {
+    margin: 0 30px 10px 30px;
+  }
+
+    .codehilite pre {
+      margin: 0;
+    }
+    .codehilite .err { background: #ff3300; color: #fff !important; } 
+
+  table#module-list {
+    font-size: 110%;
+  }
+
+    table#module-list tr td:first-child {
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    table#module-list td {
+      vertical-align: top;
+      padding-bottom: 8px;
+    }
+
+      table#module-list td p {
+        margin: 0 0 7px 0;
+      }
+
+  .def {
+    display: table;
+  }
+
+    .def p {
+      display: table-cell;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .def p:first-child {
+      white-space: nowrap;
+    }
+
+    .def p:last-child {
+      width: 100%;
+    }
+
+
+  #index {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+    ul#index .class_name {
+      /* font-size: 110%; */
+      font-weight: bold;
+    }
+    #index ul {
+      margin: 0;
+    }
+
+  .item {
+    margin: 0 0 15px 0;
+  }
+
+    .item .class {
+      margin: 0 0 25px 30px;
+    }
+
+      .item .class ul.class_list {
+        margin: 0 0 20px 0;
+      }
+
+    .item .name {
+      background: #fafafa;
+      margin: 0;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 3px;
+      display: inline-block;
+      min-width: 40%;
+    }
+      .item .name:hover {
+        background: #f6f6f6;
+      }
+
+    .item .empty_desc {
+      margin: 0 0 5px 0;
+      padding: 0;
+    }
+
+    .item .inheritance {
+      margin: 3px 0 0 30px;
+    }
+
+    .item .inherited {
+      color: #666;
+    }
+
+    .item .desc {
+      padding: 0 8px;
+      margin: 0;
+    }
+
+      .item .desc p {
+        margin: 0 0 10px 0;
+      }
+
+    .source_cont {
+      margin: 0;
+      padding: 0;
+    }
+
+    .source_link a {
+      background: #ffc300;
+      font-weight: 400;
+      font-size: .75em;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 1px 1px 0 #f4b700;
+      
+      padding: 3px 8px;
+      border-radius: 2px;
+      transition: background .3s ease-in-out;
+    }
+      .source_link a:hover {
+        background: #FF7200;
+        text-shadow: none;
+        transition: background .3s ease-in-out;
+      }
+
+    .source {
+      display: none;
+      max-height: 600px;
+      overflow-y: scroll;
+      margin-bottom: 15px;
+    }
+
+      .source .codehilite {
+        margin: 0;
+      }
+
+  .desc h1, .desc h2, .desc h3 {
+    font-size: 100% !important;
+  }
+  .clear {
+    clear: both;
+  }
+
+  @media all and (max-width: 950px) {
+    #sidebar {
+      width: 35%;
+    }
+    #content {
+      width: 65%;
+    }
+  }
+  @media all and (max-width: 650px) {
+    #top {
+      display: none;
+    }
+    #sidebar {
+      float: none;
+      width: auto;
+    }
+    #content {
+      float: none;
+      width: auto;
+      padding: 30px;
+    }
+
+    #index ul {
+      padding: 0;
+      margin-bottom: 15px;
+    }
+    #index ul li {
+      display: inline-block;
+      margin-right: 30px;
+    }
+    #footer {
+      text-align: left;
+    }
+    #footer p {
+      display: block;
+      margin: inherit;
+    }
+  }
+
+  /*****************************/
+
+  </style>
+
+  <style type="text/css">
+  .codehilite .hll { background-color: #ffffcc }
+.codehilite  { background: #f8f8f8; }
+.codehilite .c { color: #408080; font-style: italic } /* Comment */
+.codehilite .err { border: 1px solid #FF0000 } /* Error */
+.codehilite .k { color: #008000; font-weight: bold } /* Keyword */
+.codehilite .o { color: #666666 } /* Operator */
+.codehilite .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.codehilite .cp { color: #BC7A00 } /* Comment.Preproc */
+.codehilite .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.codehilite .cs { color: #408080; font-style: italic } /* Comment.Special */
+.codehilite .gd { color: #A00000 } /* Generic.Deleted */
+.codehilite .ge { font-style: italic } /* Generic.Emph */
+.codehilite .gr { color: #FF0000 } /* Generic.Error */
+.codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.codehilite .gi { color: #00A000 } /* Generic.Inserted */
+.codehilite .go { color: #888888 } /* Generic.Output */
+.codehilite .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite .gt { color: #0044DD } /* Generic.Traceback */
+.codehilite .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #008000 } /* Keyword.Pseudo */
+.codehilite .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #B00040 } /* Keyword.Type */
+.codehilite .m { color: #666666 } /* Literal.Number */
+.codehilite .s { color: #BA2121 } /* Literal.String */
+.codehilite .na { color: #7D9029 } /* Name.Attribute */
+.codehilite .nb { color: #008000 } /* Name.Builtin */
+.codehilite .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #880000 } /* Name.Constant */
+.codehilite .nd { color: #AA22FF } /* Name.Decorator */
+.codehilite .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.codehilite .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.codehilite .nf { color: #0000FF } /* Name.Function */
+.codehilite .nl { color: #A0A000 } /* Name.Label */
+.codehilite .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.codehilite .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.codehilite .nv { color: #19177C } /* Name.Variable */
+.codehilite .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite .mb { color: #666666 } /* Literal.Number.Bin */
+.codehilite .mf { color: #666666 } /* Literal.Number.Float */
+.codehilite .mh { color: #666666 } /* Literal.Number.Hex */
+.codehilite .mi { color: #666666 } /* Literal.Number.Integer */
+.codehilite .mo { color: #666666 } /* Literal.Number.Oct */
+.codehilite .sb { color: #BA2121 } /* Literal.String.Backtick */
+.codehilite .sc { color: #BA2121 } /* Literal.String.Char */
+.codehilite .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.codehilite .s2 { color: #BA2121 } /* Literal.String.Double */
+.codehilite .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.codehilite .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.codehilite .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.codehilite .sx { color: #008000 } /* Literal.String.Other */
+.codehilite .sr { color: #BB6688 } /* Literal.String.Regex */
+.codehilite .s1 { color: #BA2121 } /* Literal.String.Single */
+.codehilite .ss { color: #19177C } /* Literal.String.Symbol */
+.codehilite .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.codehilite .vc { color: #19177C } /* Name.Variable.Class */
+.codehilite .vg { color: #19177C } /* Name.Variable.Global */
+.codehilite .vi { color: #19177C } /* Name.Variable.Instance */
+.codehilite .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
+
+  <style type="text/css">
+  
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+  </style>
+
+  <script type="text/javascript">
+  function toggle(id, $link) {
+    $node = document.getElementById(id);
+    if (!$node)
+    return;
+    if (!$node.style.display || $node.style.display == 'none') {
+    $node.style.display = 'block';
+    $link.innerHTML = 'Hide source &nequiv;';
+    } else {
+    $node.style.display = 'none';
+    $link.innerHTML = 'Show source &equiv;';
+    }
+  }
+  </script>
+</head>
+<body>
+<a href="#" id="top">Top</a>
+
+<div id="container">
+    
+  
+  <div id="sidebar">
+    <h1>Index</h1>
+    <ul id="index">
+
+
+    <li class="set"><h3><a href="#header-classes">Classes</a></h3>
+      <ul>
+        <li class="mono">
+        <span class="class_name"><a href="#gcp_hpo.smart_search.SmartSearch">SmartSearch</a></span>
+        
+          
+  <ul>
+    <li class="mono"><a href="#gcp_hpo.smart_search.SmartSearch.__init__">__init__</a></li>
+    <li class="mono"><a href="#gcp_hpo.smart_search.SmartSearch.score">score</a></li>
+    <li class="mono"><a href="#gcp_hpo.smart_search.SmartSearch.vector_to_dict">vector_to_dict</a></li>
+  </ul>
+
+        </li>
+      </ul>
+    </li>
+
+    </ul>
+  </div>
+
+    <article id="content">
+      
+  
+
+  
+
+
+  <header id="section-intro">
+  <h1 class="title"><span class="name">gcp_hpo.smart_search</span> module</h1>
+  <p>Hyper-parameter optimization through randomized search, GP-based, and GCP-based.</p>
+  
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-gcp_hpo.smart_search', this);">Show source &equiv;</a></p>
+  <div id="source-gcp_hpo.smart_search" class="source">
+    <div class="codehilite"><pre><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Hyper-parameter optimization through randomized search, GP-based, and GCP-based.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c"># Author: Sebastien Dubois </span>
+<span class="c">#		  for ALFA Group, CSAIL, MIT</span>
+
+<span class="c"># The MIT License (MIT)</span>
+<span class="c"># Copyright (c) 2015 Sebastien Dubois</span>
+
+<span class="c"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="c"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+<span class="c"># in the Software without restriction, including without limitation the rights</span>
+<span class="c"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class="c"># copies of the Software, and to permit persons to whom the Software is</span>
+<span class="c"># furnished to do so, subject to the following conditions:</span>
+
+<span class="c"># The above copyright notice and this permission notice shall be included in</span>
+<span class="c"># all copies or substantial portions of the Software.</span>
+
+<span class="c"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="c"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="c"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="c"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="c"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</span>
+<span class="c"># THE SOFTWARE.</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span><span class="p">,</span> <span class="n">randrange</span>
+<span class="kn">import</span> <span class="nn">search_utils</span> <span class="kn">as</span> <span class="nn">utils</span> 
+<span class="kn">from</span> <span class="nn">gcp_hpo.gcp.gcp</span> <span class="kn">import</span> <span class="n">GaussianCopulaProcess</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.gaussian_process</span> <span class="kn">import</span> <span class="n">GaussianProcess</span>
+<span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="n">check_cv</span><span class="p">,</span> <span class="n">_fit_and_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics.scorer</span> <span class="kn">import</span> <span class="n">check_scoring</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">is_classifier</span><span class="p">,</span> <span class="n">clone</span>
+
+<span class="k">class</span> <span class="nc">SmartSearch</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;The class for GCP-based hyper-parameter optimization.  </span>
+<span class="sd">	Also handling randomized and GP-based search.</span>
+
+<span class="sd">	**Parameters**</span>
+<span class="sd">	----------</span>
+<span class="sd">	`parameters` : dict, parameter space on which to optimize the estimator  </span>
+<span class="sd">		The keys of the dictionnary should be the names of the parameters,</span>
+<span class="sd">		and the values should be lists of length 2; the first element being</span>
+<span class="sd">		the type of the parameter (&#39;int&#39;, &#39;float&#39; or &#39;cat&#39; [for categorical]),</span>
+<span class="sd">		and the second element being a list of either the bounds between which</span>
+<span class="sd">		to search (for &#39;int&#39; and &#39;float&#39;) or the values the parameter can take</span>
+<span class="sd">		(for &#39;cat&#39;)</span>
+<span class="sd">		Example : parameters = {&#39;kernel&#39; :  [&#39;cat&#39;, [&#39;rbf&#39;,&#39;poly&#39;]],</span>
+<span class="sd">				     			 &#39;d&#39; : [&#39;int&#39;, [1,3]],</span>
+<span class="sd">					  			 &#39;C&#39; : [&#39;float&#39;,[1,10])}  </span>
+
+<span class="sd">	`estimator` : 1) sklearn estimator or 2) callable  </span>
+<span class="sd">		1 : object type that implements the &quot;fit&quot; and &quot;predict&quot; methods,</span>
+<span class="sd">		as a classifier or a pipeline</span>
+<span class="sd">		2 : a function that computes the output given a dictionnary of </span>
+<span class="sd">		parameters. The returned value should be a list of one or more </span>
+<span class="sd">		floats if score_format == &#39;cv&#39;, and a float if score_format == </span>
+<span class="sd">		&#39;avg&#39;.   </span>
+
+<span class="sd">	`X` : array-like, shape = [n_samples, n_features]  </span>
+<span class="sd">		Training vector, where n_samples in the number of samples and</span>
+<span class="sd">		n_features is the number of features.   </span>
+
+<span class="sd">	`y` : array-like, shape = [n_samples] or [n_samples, n_output], optional  </span>
+<span class="sd">		Target relative to X for classification or regression;</span>
+<span class="sd">		None for unsupervised learning.  </span>
+
+<span class="sd">	`model` : string, optional  </span>
+<span class="sd">		The model to run.</span>
+<span class="sd">		Choose between :</span>
+<span class="sd">		- GCP (non-parametric (Latent) Gaussian Copula Process)</span>
+<span class="sd">		- GP (Gaussian Process)</span>
+<span class="sd">		- rand (samples at random)  </span>
+
+<span class="sd">	`score_format` : string (&#39;cv&#39; or &#39;avg&#39;), optional   </span>
+<span class="sd">		&#39;avg&#39; considers only the mean of the CV results while &#39;cv&#39;</span>
+<span class="sd">		stores all values</span>
+<span class="sd">		Default is &#39;cv&#39;  </span>
+
+<span class="sd">	`fit_params` : dict, optional  </span>
+<span class="sd">		Parameters to pass to the fit method.  </span>
+
+<span class="sd">	`scoring` : string, callable or None, optional  </span>
+<span class="sd">	    A string (see sklearn&#39;s model evaluation documentation) or</span>
+<span class="sd">	    a scorer callable object / function with signature</span>
+<span class="sd">	    ``scorer(estimator, X, y)``.</span>
+<span class="sd">	    Default is None.  </span>
+
+<span class="sd">	`cv` : integer or cross-validation generator, optional  </span>
+<span class="sd">		Relevant if the estimator is an sklearn object.</span>
+<span class="sd">		If an integer is passed, it is the number of folds.</span>
+<span class="sd">		Specific cross-validation objects can be passed, see</span>
+<span class="sd">		sklearn.cross_validation module for the list of possible objects</span>
+<span class="sd">		Default is 5.  </span>
+
+<span class="sd">	`acquisition function` : string, optional  </span>
+<span class="sd">		Function to maximize in order to choose the next parameter to test.  </span>
+<span class="sd">		- Simple : maximize the predicted output  </span>
+<span class="sd">		- UCB : maximize the upper confidence bound  </span>
+<span class="sd">		- EI : maximizes the expected improvement  </span>
+<span class="sd">		Default is &#39;UCB&#39;  </span>
+
+<span class="sd">	`corr_kernel` : string, optional  </span>
+<span class="sd">		Correlation kernel to choose for the GCP.   </span>
+<span class="sd">		Possible choices are :</span>
+<span class="sd">		- exponential_periodic (a linear combination of 3 classic kernels)</span>
+<span class="sd">		- squared_exponential</span>
+<span class="sd">		Default is &#39;exponential_periodic&#39;.  </span>
+
+<span class="sd">	`n_iter` : int  </span>
+<span class="sd">		Total number of iterations to perform (including n_init and n_final_iter).</span>
+<span class="sd">		Default is 100.  </span>
+
+<span class="sd">	`n_init` : int, optional  </span>
+<span class="sd">		Number of random iterations to perform before the smart sampling.</span>
+<span class="sd">		Default is 30.  </span>
+
+<span class="sd">	`n_final_iter` : int, optional  </span>
+<span class="sd">		Number of final iterations, ie. smart iterations but with</span>
+<span class="sd">		acquisition_function == &#39;Simple&#39;</span>
+<span class="sd">		Default is 5.  </span>
+
+<span class="sd">	`n_candidates` : int, optional  </span>
+<span class="sd">		Number of random candidates to sample for each GCP / GP iterations</span>
+<span class="sd">		Default is 500.  </span>
+
+<span class="sd">	`n_clusters` : int, optional  </span>
+<span class="sd">		Number of clusters used in the parameter space to build a variable mapping for the GCP.</span>
+<span class="sd">		Default is 1.  </span>
+
+<span class="sd">	`cluster_evol` : string {&#39;constant&#39;, &#39;step&#39;, &#39;variable&#39;}, optional  </span>
+<span class="sd">		Method used to set the number of clusters.</span>
+<span class="sd">		If &#39;constant&#39;, the number of clusters is set with n_clusters.</span>
+<span class="sd">		If &#39;step&#39;, start with one cluster, and set n_clusters after 20 smart steps.</span>
+<span class="sd">		If &#39;variable&#39;, start with one cluster and increase n_clusters by one every 30 smart steps.</span>
+<span class="sd">		Default is constant.  </span>
+
+<span class="sd">	`n_clusters_max` : int, optional  </span>
+<span class="sd">		The maximum value for n_clusters (relevant only if cluster_evol &lt;&gt; &#39;constant&#39;).</span>
+<span class="sd">		Default is 5.  </span>
+
+<span class="sd">	`nugget` : float, optional  </span>
+<span class="sd">		The nugget to set for the Gaussian Copula Process or Gaussian Process.</span>
+<span class="sd">		Default is 1.e-10.  </span>
+
+<span class="sd">	`GCP_mapWithNoise` : boolean, optional  </span>
+<span class="sd">		If True and if Y outputs contain multiple noisy observations for the same</span>
+<span class="sd">		x inputs, then all the noisy observations are used to compute Y&#39;s distribution</span>
+<span class="sd">		and learn the mapping function.</span>
+<span class="sd">		Otherwise, only the mean of the outputs, for a given input x, is considered.</span>
+<span class="sd">		Default is False.  </span>
+
+<span class="sd">	`GCP_useAllNoisyY` : boolean, optional  </span>
+<span class="sd">		If True and if Y outputs contain multiple noisy observations for the same</span>
+<span class="sd">		x inputs, then all the warped noisy observations are used to fit the GP.</span>
+<span class="sd">		Otherwise, only the mean of the outputs, for a given input x, is considered.</span>
+<span class="sd">		Default is False.  </span>
+
+<span class="sd">	`model_noise` : string {&#39;EGN&#39;,None}, optional  </span>
+<span class="sd">		Method to model the noise.</span>
+<span class="sd">		If not None and if Y outputs contain multiple noisy observations for the same</span>
+<span class="sd">		x inputs, then the nugget is estimated from the standard deviation of the multiple </span>
+<span class="sd">		outputs for a given input x.</span>
+<span class="sd">		Default is None.  </span>
+
+<span class="sd">	`detailed_res` : int, optional  </span>
+<span class="sd">		Specify the level of details to return.</span>
+<span class="sd">		0 : tested parameters and mean outputs</span>
+<span class="sd">		1 : tested parameters and list of CV results</span>
+<span class="sd">		2 : tested parameters, search path, list of all CV results and mean outputs</span>
+<span class="sd">		Default is 1.  </span>
+
+
+<span class="sd">	**Attributes**</span>
+<span class="sd">	----------</span>
+<span class="sd">	`best_parameter_` : dict, the parameter set, from those tested by the method _fit, that</span>
+<span class="sd">		maximizes the mean of the cross-validation results.</span>
+
+<span class="sd">	`tested_parameters_` : ndarray, the parameters tested by _fit</span>
+
+<span class="sd">	`cv_scores_` : if score_format == &#39;cv&#39;, list of all the CV results of the parameters</span>
+<span class="sd">		tested by _fit;</span>
+<span class="sd">				 if score_format == &#39;avg&#39;, array of the mean CV results of the parameters</span>
+<span class="sd">		tested by _fit</span>
+
+
+<span class="sd">	**Examples**</span>
+<span class="sd">	--------</span>
+<span class="sd">		&gt;&gt;&gt; from sklearn.datasets import load_digits</span>
+<span class="sd">		&gt;&gt;&gt; iris = load_digits()</span>
+<span class="sd">		&gt;&gt;&gt; X, y = iris.data, iris.target</span>
+<span class="sd">		&gt;&gt;&gt; clf = RandomForestClassifier(n_estimators=20)</span>
+<span class="sd">		&gt;&gt;&gt; parameters = {</span>
+<span class="sd">				&quot;max_depth&quot;: [&#39;int&#39;,[3, 3]],</span>
+<span class="sd">				&quot;max_features&quot;: [&#39;int&#39;,[1,11]],</span>
+<span class="sd">				&quot;min_samples_split&quot;: [&#39;int&#39;,[1,11]],</span>
+<span class="sd">				&quot;min_samples_leaf&quot;: [&#39;int&#39;,[1,11]],</span>
+<span class="sd">				&quot;bootstrap&quot;: [&#39;cat&#39;,[True, False]],</span>
+<span class="sd">				&quot;criterion&quot;: [&#39;cat&#39;,[&quot;gini&quot;, &quot;entropy&quot;]]}</span>
+
+<span class="sd">		&gt;&gt;&gt; search = SmartSearch(parameters,estimator=clf,X=X,y=y,n_iter=20)</span>
+<span class="sd">		&gt;&gt;&gt; search._fit()</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+				<span class="n">parameters</span><span class="p">,</span>
+				<span class="n">estimator</span><span class="p">,</span>
+				<span class="n">X</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+				<span class="n">y</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+				<span class="n">model</span><span class="o">=</span><span class="s">&#39;GCP&#39;</span><span class="p">,</span>
+				<span class="n">score_format</span> <span class="o">=</span> <span class="s">&#39;cv&#39;</span><span class="p">,</span>
+				<span class="n">fit_params</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+				<span class="n">scoring</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+				<span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+				<span class="n">acquisition_function</span> <span class="o">=</span> <span class="s">&#39;UCB&#39;</span><span class="p">,</span>
+				<span class="n">corr_kernel</span><span class="o">=</span> <span class="s">&#39;squared_exponential&#39;</span><span class="p">,</span>
+				<span class="n">n_clusters</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+				<span class="n">n_clusters_max</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+				<span class="n">cluster_evol</span> <span class="o">=</span> <span class="s">&#39;constant&#39;</span><span class="p">,</span>
+				<span class="n">GCP_mapWithNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+				<span class="n">GCP_useAllNoisyY</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+				<span class="n">model_noise</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+				<span class="n">n_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+				<span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+				<span class="n">n_final_iter</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+				<span class="n">n_candidates</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
+				<span class="n">nugget</span><span class="o">=</span><span class="mf">1.e-10</span><span class="p">,</span>
+				<span class="n">detailed_res</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+				<span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="n">parameters</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">n_parameters</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">=</span> <span class="n">n_iter</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">n_init</span> <span class="o">=</span> <span class="n">n_init</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">n_final_iter</span> <span class="o">=</span> <span class="n">n_final_iter</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">n_candidates</span> <span class="o">=</span> <span class="n">n_candidates</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">param_names</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">parameters</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">param_isInt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span> <span class="k">if</span> <span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;float&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span> <span class="p">])</span> 
+		<span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">n_parameters</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">scoring</span> <span class="o">=</span> <span class="n">scoring</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">estimator</span> <span class="o">=</span> <span class="n">estimator</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fit_params</span> <span class="o">=</span> <span class="n">fit_params</span> <span class="k">if</span> <span class="n">fit_params</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="p">{}</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">cv</span> <span class="o">=</span> <span class="n">cv</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">X</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">score_format</span> <span class="o">=</span> <span class="n">score_format</span> <span class="c"># &#39;cv&#39; or &#39;avg&#39;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">acquisition_function</span> <span class="o">=</span> <span class="n">acquisition_function</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">corr_kernel</span> <span class="o">=</span> <span class="n">corr_kernel</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">n_clusters</span> <span class="o">=</span> <span class="n">n_clusters</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">n_clusters_max</span> <span class="o">=</span> <span class="n">n_clusters_max</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">cluster_evol</span> <span class="o">=</span> <span class="n">cluster_evol</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">GCP_mapWithNoise</span> <span class="o">=</span> <span class="n">GCP_mapWithNoise</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">GCP_useAllNoisyY</span> <span class="o">=</span> <span class="n">GCP_useAllNoisyY</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">model_noise</span> <span class="o">=</span> <span class="n">model_noise</span>		
+		<span class="bp">self</span><span class="o">.</span><span class="n">GCP_upperBound_coef</span> <span class="o">=</span> <span class="mf">1.96</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">nugget</span> <span class="o">=</span> <span class="n">nugget</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">detailed_res</span> <span class="o">=</span> <span class="n">detailed_res</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">best_parameter_</span> <span class="o">=</span> <span class="bp">None</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">tested_parameters_</span> <span class="o">=</span> <span class="bp">None</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">cv_scores_</span> <span class="o">=</span> <span class="bp">None</span>
+
+		<span class="k">if</span><span class="p">(</span><span class="n">cluster_evol</span> <span class="o">!=</span> <span class="s">&#39;constant&#39;</span><span class="p">):</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span> <span class="o">=</span> <span class="p">[</span><span class="n">corr_kernel</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">GCP_mapWithNoise</span><span class="p">,</span><span class="n">GCP_useAllNoisyY</span><span class="p">,</span><span class="n">model_noise</span><span class="p">,</span><span class="n">nugget</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">GCP_upperBound_coef</span><span class="p">]</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span> <span class="o">=</span> <span class="p">[</span><span class="n">corr_kernel</span><span class="p">,</span> <span class="n">n_clusters</span><span class="p">,</span><span class="n">GCP_mapWithNoise</span><span class="p">,</span><span class="n">GCP_useAllNoisyY</span><span class="p">,</span><span class="n">model_noise</span><span class="p">,</span><span class="n">nugget</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">GCP_upperBound_coef</span><span class="p">]</span>
+			
+		<span class="k">if</span><span class="p">(</span><span class="nb">callable</span><span class="p">(</span><span class="n">estimator</span><span class="p">)):</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">_callable_estimator</span> <span class="o">=</span> <span class="bp">True</span>
+			<span class="k">if</span><span class="p">(</span><span class="n">verbose</span><span class="p">):</span>
+				<span class="k">print</span><span class="p">(</span><span class="s">&#39;Estimator is a callable and not an sklearn Estimator&#39;</span><span class="p">)</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">_callable_estimator</span> <span class="o">=</span> <span class="bp">False</span>
+
+		<span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_callable_estimator</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">scorer_</span> <span class="o">=</span> <span class="n">check_scoring</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scoring</span><span class="p">)</span>
+
+		<span class="c"># init param_bounds</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_parameters</span><span class="p">):</span>
+			<span class="k">if</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;cat&#39;</span><span class="p">):</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">])</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">])</span>
+				<span class="k">if</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;int&#39;</span><span class="p">):</span>
+					<span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+		<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+			<span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">)</span>
+			<span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">)</span>
+			<span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_isInt</span><span class="p">)</span>
+			<span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">)</span>
+
+
+	<span class="k">def</span> <span class="nf">vector_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">vector_parameter</span><span class="p">):</span>
+		<span class="n">dict_parameter</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">)</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_parameters</span><span class="p">):</span>
+			<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;cat&#39;</span><span class="p">):</span>
+				<span class="n">dict_parameter</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">])[</span><span class="nb">int</span><span class="p">(</span><span class="n">vector_parameter</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span>
+			<span class="k">elif</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;int&#39;</span><span class="p">):</span>
+				<span class="n">dict_parameter</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">vector_parameter</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">dict_parameter</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">vector_parameter</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+		<span class="k">return</span> <span class="n">dict_parameter</span>
+
+	<span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">test_parameter</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		The score function to call in order to evaluate the quality </span>
+<span class="sd">		of the parameter test_parameter</span>
+
+<span class="sd">		Parameters</span>
+<span class="sd">		----------</span>
+<span class="sd">		`tested_parameter` : dict, the parameter to test</span>
+
+<span class="sd">		Returns</span>
+<span class="sd">		-------</span>
+<span class="sd">		`score` : the CV score, either the list of all cv results or</span>
+<span class="sd">			the mean (depending of score_format)</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+
+		<span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_callable_estimator</span><span class="p">:</span>
+	 		<span class="n">cv</span> <span class="o">=</span> <span class="n">check_cv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">classifier</span><span class="o">=</span><span class="n">is_classifier</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">))</span>
+	 		<span class="n">cv_score</span> <span class="o">=</span> <span class="p">[</span> <span class="n">_fit_and_score</span><span class="p">(</span><span class="n">clone</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scorer_</span><span class="p">,</span>
+							<span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="n">test_parameter</span><span class="p">,</span>
+							<span class="bp">self</span><span class="o">.</span><span class="n">fit_params</span><span class="p">,</span> <span class="n">return_parameters</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+						<span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">cv</span> <span class="p">]</span>
+
+			<span class="n">n_test_samples</span> <span class="o">=</span> <span class="mi">0</span>
+			<span class="n">mean_score</span> <span class="o">=</span> <span class="mi">0</span>
+			<span class="n">detailed_score</span> <span class="o">=</span> <span class="p">[]</span>
+			<span class="k">for</span> <span class="n">tmp_score</span><span class="p">,</span> <span class="n">tmp_n_test_samples</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">cv_score</span><span class="p">:</span>
+				<span class="n">detailed_score</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp_score</span><span class="p">)</span>
+				<span class="n">tmp_score</span> <span class="o">*=</span> <span class="n">tmp_n_test_samples</span>
+				<span class="n">n_test_samples</span> <span class="o">+=</span> <span class="n">tmp_n_test_samples</span>
+				<span class="n">mean_score</span> <span class="o">+=</span> <span class="n">tmp_score</span>
+			<span class="n">mean_score</span> <span class="o">/=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_test_samples</span><span class="p">)</span>
+
+			<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">score_format</span> <span class="o">==</span> <span class="s">&#39;avg&#39;</span><span class="p">):</span>
+				<span class="n">score</span> <span class="o">=</span> <span class="n">mean_score</span>
+			<span class="k">else</span><span class="p">:</span> <span class="c"># format == &#39;cv&#39;</span>
+				<span class="n">score</span> <span class="o">=</span> <span class="n">detailed_score</span>
+
+
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">score_format</span> <span class="o">==</span> <span class="s">&#39;avg&#39;</span><span class="p">):</span>
+				<span class="n">score</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">(</span><span class="n">test_parameter</span><span class="p">)]</span>
+			<span class="k">else</span><span class="p">:</span> <span class="c"># format == &#39;cv&#39;</span>
+				<span class="n">score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">(</span><span class="n">test_parameter</span><span class="p">)</span>
+
+		<span class="k">return</span> <span class="n">score</span>
+
+
+	<span class="k">def</span> <span class="nf">_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Run the hyper-parameter optimization process</span>
+
+<span class="sd">		Returns</span>
+<span class="sd">		-------</span>
+<span class="sd">		`tested_parameters_` : ndarray, the parameters tested during the process</span>
+
+<span class="sd">		`cv_scores_` : if score_format == &#39;cv&#39;, list of all the CV results of the </span>
+<span class="sd">			parameters tested; if score_format == &#39;avg&#39;, array of the </span>
+<span class="sd">			mean CV results of the parameters tested</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+
+		<span class="n">n_tested_parameters</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="n">tested_parameters</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">n_parameters</span><span class="p">))</span>
+		<span class="n">cv_scores</span> <span class="o">=</span> <span class="p">[]</span>
+		<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">detailed_res</span> <span class="o">==</span><span class="mi">2</span><span class="p">):</span>
+			<span class="n">search_path</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">n_parameters</span><span class="p">))</span>
+
+		<span class="c">###    Initialize with random candidates    ### </span>
+		<span class="n">init_candidates</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">sample_candidates</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_init</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">param_isInt</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">n_init</span> <span class="o">=</span> <span class="n">init_candidates</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+		<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+			<span class="k">print</span><span class="p">(</span><span class="s">&#39;Start random init&#39;</span><span class="p">)</span>
+
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_init</span><span class="p">):</span>
+			<span class="n">dict_candidate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vector_to_dict</span><span class="p">(</span><span class="n">init_candidates</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+			<span class="n">cv_score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">dict_candidate</span><span class="p">)</span>
+
+			<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+				<span class="k">print</span> <span class="p">(</span><span class="s">&#39;Step &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; - Hyperparameter &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dict_candidate</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cv_score</span><span class="p">)))</span>
+
+			<span class="n">is_in</span><span class="p">,</span><span class="n">idx</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">is_in_ndarray</span><span class="p">(</span><span class="n">init_candidates</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span><span class="n">tested_parameters</span><span class="p">[:</span><span class="n">n_tested_parameters</span><span class="p">,:])</span>
+			<span class="k">if</span> <span class="ow">not</span> <span class="n">is_in</span><span class="p">:</span>
+				<span class="n">tested_parameters</span><span class="p">[</span><span class="n">n_tested_parameters</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">init_candidates</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span>
+				<span class="n">cv_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cv_score</span><span class="p">)</span>
+				<span class="n">n_tested_parameters</span> <span class="o">+=</span> <span class="mi">1</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+					<span class="k">print</span><span class="p">(</span><span class="s">&#39;Hyperparameter already tesed&#39;</span><span class="p">)</span>
+				<span class="n">cv_scores</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">+=</span>  <span class="n">cv_score</span>
+
+			<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">detailed_res</span> <span class="o">==</span><span class="mi">2</span><span class="p">):</span>
+				<span class="n">search_path</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">init_candidates</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span>
+
+
+		<span class="c">###               Smart Search               ### </span>
+		<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+			<span class="k">print</span><span class="p">(</span><span class="s">&#39;Start smart search&#39;</span><span class="p">)</span>
+
+		<span class="n">i_mod_10</span> <span class="o">=</span> <span class="mi">0</span>  
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_init</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_final_iter</span><span class="p">):</span>
+
+			<span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="mi">20</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_evol</span><span class="o">==</span><span class="s">&#39;step&#39;</span><span class="p">):</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">n_clusters</span>
+
+			<span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">10</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">i_mod_10</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_evol</span><span class="o">==</span><span class="s">&#39;variable&#39;</span><span class="p">):</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">n_clusters_max</span><span class="p">)</span>
+				<span class="n">i_mod_10</span> <span class="o">+=</span> <span class="mi">3</span>
+			
+			<span class="c"># Sample candidates and predict their corresponding acquisition values</span>
+			<span class="n">candidates</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">sample_candidates</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_candidates</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">param_isInt</span><span class="p">)</span>
+
+			<span class="c"># Model and retrieve the candidate that maximezes the acquisiton function</span>
+			<span class="n">best_candidate</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">find_best_candidate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+														<span class="n">tested_parameters</span><span class="p">[:</span><span class="n">n_tested_parameters</span><span class="p">,:],</span>
+														<span class="n">cv_scores</span><span class="p">,</span>
+														<span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span><span class="p">,</span>
+												 		<span class="n">candidates</span><span class="p">,</span>
+												 		<span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">,</span>
+												 		<span class="bp">self</span><span class="o">.</span><span class="n">acquisition_function</span><span class="p">)</span>
+
+			<span class="n">dict_candidate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vector_to_dict</span><span class="p">(</span><span class="n">best_candidate</span><span class="p">)</span>
+			<span class="n">cv_score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">dict_candidate</span><span class="p">)</span>
+
+			<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+				<span class="k">print</span> <span class="p">(</span><span class="s">&#39;Step &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">n_init</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; - Hyperparameter &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dict_candidate</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cv_score</span><span class="p">)))</span>
+
+			<span class="n">is_in</span><span class="p">,</span><span class="n">idx</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">is_in_ndarray</span><span class="p">(</span><span class="n">best_candidate</span><span class="p">,</span><span class="n">tested_parameters</span><span class="p">[:</span><span class="n">n_tested_parameters</span><span class="p">,:])</span>
+			<span class="k">if</span> <span class="ow">not</span> <span class="n">is_in</span><span class="p">:</span>
+				<span class="n">tested_parameters</span><span class="p">[</span><span class="n">n_tested_parameters</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">best_candidate</span>
+				<span class="n">cv_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cv_score</span><span class="p">)</span>
+				<span class="n">n_tested_parameters</span> <span class="o">+=</span> <span class="mi">1</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+					<span class="k">print</span><span class="p">(</span><span class="s">&#39;Hyperparameter already tesed&#39;</span><span class="p">)</span>
+				<span class="n">cv_scores</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">+=</span> <span class="n">cv_score</span>
+
+			<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">detailed_res</span> <span class="o">==</span><span class="mi">2</span><span class="p">):</span>
+				<span class="n">search_path</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_init</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">best_candidate</span>
+
+
+		<span class="c">###               Final steps               ###      </span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">acquisition_function</span> <span class="o">=</span> <span class="s">&#39;Simple&#39;</span>
+
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_final_iter</span><span class="p">):</span>
+
+			<span class="c"># Sample candidates and predict their corresponding acquisition values</span>
+			<span class="n">candidates</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">sample_candidates</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_candidates</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">param_isInt</span><span class="p">)</span>
+
+			<span class="c"># Model and retrieve the candidate that maximezes the acquisiton function</span>
+			<span class="n">best_candidate</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">find_best_candidate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+														<span class="n">tested_parameters</span><span class="p">[:</span><span class="n">n_tested_parameters</span><span class="p">,:],</span>
+														<span class="n">cv_scores</span><span class="p">,</span>
+														<span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span><span class="p">,</span>
+												 		<span class="n">candidates</span><span class="p">,</span>
+												 		<span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">,</span>
+												 		<span class="bp">self</span><span class="o">.</span><span class="n">acquisition_function</span><span class="p">)</span>
+
+			<span class="n">dict_candidate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vector_to_dict</span><span class="p">(</span><span class="n">best_candidate</span><span class="p">)</span>
+			<span class="n">cv_score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">dict_candidate</span><span class="p">)</span>
+
+			<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+				<span class="k">print</span> <span class="p">(</span><span class="s">&#39;Step &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_final_iter</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; - Hyperparameter &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dict_candidate</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cv_score</span><span class="p">)))</span>
+
+			<span class="n">is_in</span><span class="p">,</span><span class="n">idx</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">is_in_ndarray</span><span class="p">(</span><span class="n">best_candidate</span><span class="p">,</span><span class="n">tested_parameters</span><span class="p">[:</span><span class="n">n_tested_parameters</span><span class="p">,:])</span>
+			<span class="k">if</span> <span class="ow">not</span> <span class="n">is_in</span><span class="p">:</span>
+				<span class="n">tested_parameters</span><span class="p">[</span><span class="n">n_tested_parameters</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">best_candidate</span>
+				<span class="n">cv_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cv_score</span><span class="p">)</span>
+				<span class="n">n_tested_parameters</span> <span class="o">+=</span> <span class="mi">1</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+					<span class="k">print</span><span class="p">(</span><span class="s">&#39;Hyperparameter already tesed&#39;</span><span class="p">)</span>
+				<span class="n">cv_scores</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">+=</span> <span class="n">cv_score</span>
+
+			<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">detailed_res</span> <span class="o">==</span><span class="mi">2</span><span class="p">):</span>
+				<span class="n">search_path</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_final_iter</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">best_candidate</span>
+
+
+		<span class="c"># compute the averages of CV results</span>
+		<span class="n">mean_scores</span> <span class="o">=</span> <span class="p">[]</span>
+		<span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">cv_scores</span><span class="p">:</span>
+			<span class="n">mean_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">o</span><span class="p">))</span>
+
+		<span class="c"># find the max</span>
+		<span class="n">best_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">mean_scores</span><span class="p">)</span>
+		<span class="n">vector_best_param</span> <span class="o">=</span> <span class="n">tested_parameters</span><span class="p">[</span><span class="n">best_idx</span><span class="p">]</span>
+		<span class="n">best_parameter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vector_to_dict</span><span class="p">(</span><span class="n">vector_best_param</span><span class="p">)</span>
+
+		<span class="c"># store</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">best_parameter_</span> <span class="o">=</span> <span class="n">best_parameter</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">tested_parameters_</span> <span class="o">=</span> <span class="n">tested_parameters</span><span class="p">[:</span><span class="n">n_tested_parameters</span><span class="p">,:]</span>
+
+		<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+			<span class="k">print</span> <span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">Tested &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n_tested_parameters</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; parameters&#39;</span><span class="p">)</span>
+			<span class="k">print</span> <span class="p">(</span><span class="s">&#39;Max cv score &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mean_scores</span><span class="p">[</span><span class="n">best_idx</span><span class="p">]))</span>
+			<span class="k">print</span> <span class="p">(</span><span class="s">&#39;Best parameter &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">tested_parameters</span><span class="p">[</span><span class="n">best_idx</span><span class="p">]))</span>
+			<span class="k">print</span><span class="p">(</span><span class="n">best_parameter</span><span class="p">)</span>
+
+		<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">detailed_res</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">cv_scores_</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cv_scores</span><span class="p">)</span>
+			<span class="k">return</span> <span class="n">tested_parameters</span><span class="p">[:</span><span class="n">n_tested_parameters</span><span class="p">,:],</span> <span class="n">cv_scores</span>
+		<span class="k">elif</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">detailed_res</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">cv_scores_</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cv_scores</span><span class="p">)</span>
+			<span class="k">return</span> <span class="n">tested_parameters</span><span class="p">[:</span><span class="n">n_tested_parameters</span><span class="p">,:],</span> <span class="n">search_path</span><span class="p">,</span> <span class="n">cv_scores</span><span class="p">,</span> <span class="n">mean_scores</span>		
+		<span class="k">else</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">cv_scores_</span> <span class="o">=</span> <span class="n">mean_scores</span>
+			<span class="k">return</span> <span class="n">tested_parameters</span><span class="p">[:</span><span class="n">n_tested_parameters</span><span class="p">,:],</span> <span class="n">mean_scores</span>
+</pre></div>
+
+  </div>
+
+  </header>
+
+  <section id="section-items">
+
+
+    <h2 class="section-title" id="header-classes">Classes</h2>
+      
+      <div class="item">
+      <p id="gcp_hpo.smart_search.SmartSearch" class="name">class <span class="ident">SmartSearch</span></p>
+      
+  
+    <div class="desc"><p>The class for GCP-based hyper-parameter optimization.<br />
+Also handling randomized and GP-based search.</p>
+<h2><strong>Parameters</strong></h2>
+<p><code>parameters</code> : dict, parameter space on which to optimize the estimator<br />
+        The keys of the dictionnary should be the names of the parameters,
+        and the values should be lists of length 2; the first element being
+        the type of the parameter ('int', 'float' or 'cat' [for categorical]),
+        and the second element being a list of either the bounds between which
+        to search (for 'int' and 'float') or the values the parameter can take
+        (for 'cat')
+        Example : parameters = {'kernel' :  ['cat', ['rbf','poly']],
+                                                 'd' : ['int', [1,3]],
+                                                         'C' : ['float',[1,10])}  </p>
+<p><code>estimator</code> : 1) sklearn estimator or 2) callable<br />
+        1 : object type that implements the "fit" and "predict" methods,
+        as a classifier or a pipeline
+        2 : a function that computes the output given a dictionnary of 
+        parameters. The returned value should be a list of one or more 
+        floats if score_format == 'cv', and a float if score_format == 
+        'avg'.   </p>
+<p><code>X</code> : array-like, shape = [n_samples, n_features]<br />
+        Training vector, where n_samples in the number of samples and
+        n_features is the number of features.   </p>
+<p><code>y</code> : array-like, shape = [n_samples] or [n_samples, n_output], optional<br />
+        Target relative to X for classification or regression;
+        None for unsupervised learning.  </p>
+<p><code>model</code> : string, optional<br />
+        The model to run.
+        Choose between :
+        - GCP (non-parametric (Latent) Gaussian Copula Process)
+        - GP (Gaussian Process)
+        - rand (samples at random)  </p>
+<p><code>score_format</code> : string ('cv' or 'avg'), optional <br />
+        'avg' considers only the mean of the CV results while 'cv'
+        stores all values
+        Default is 'cv'  </p>
+<p><code>fit_params</code> : dict, optional<br />
+        Parameters to pass to the fit method.  </p>
+<p><code>scoring</code> : string, callable or None, optional<br />
+    A string (see sklearn's model evaluation documentation) or
+    a scorer callable object / function with signature
+    <code>scorer(estimator, X, y)</code>.
+    Default is None.  </p>
+<p><code>cv</code> : integer or cross-validation generator, optional<br />
+        Relevant if the estimator is an sklearn object.
+        If an integer is passed, it is the number of folds.
+        Specific cross-validation objects can be passed, see
+        sklearn.cross_validation module for the list of possible objects
+        Default is 5.  </p>
+<p><code>acquisition function</code> : string, optional<br />
+        Function to maximize in order to choose the next parameter to test.<br />
+        - Simple : maximize the predicted output<br />
+        - UCB : maximize the upper confidence bound<br />
+        - EI : maximizes the expected improvement<br />
+        Default is 'UCB'  </p>
+<p><code>corr_kernel</code> : string, optional<br />
+        Correlation kernel to choose for the GCP. <br />
+        Possible choices are :
+        - exponential_periodic (a linear combination of 3 classic kernels)
+        - squared_exponential
+        Default is 'exponential_periodic'.  </p>
+<p><code>n_iter</code> : int<br />
+        Total number of iterations to perform (including n_init and n_final_iter).
+        Default is 100.  </p>
+<p><code>n_init</code> : int, optional<br />
+        Number of random iterations to perform before the smart sampling.
+        Default is 30.  </p>
+<p><code>n_final_iter</code> : int, optional<br />
+        Number of final iterations, ie. smart iterations but with
+        acquisition_function == 'Simple'
+        Default is 5.  </p>
+<p><code>n_candidates</code> : int, optional<br />
+        Number of random candidates to sample for each GCP / GP iterations
+        Default is 500.  </p>
+<p><code>n_clusters</code> : int, optional<br />
+        Number of clusters used in the parameter space to build a variable mapping for the GCP.
+        Default is 1.  </p>
+<p><code>cluster_evol</code> : string {'constant', 'step', 'variable'}, optional<br />
+        Method used to set the number of clusters.
+        If 'constant', the number of clusters is set with n_clusters.
+        If 'step', start with one cluster, and set n_clusters after 20 smart steps.
+        If 'variable', start with one cluster and increase n_clusters by one every 30 smart steps.
+        Default is constant.  </p>
+<p><code>n_clusters_max</code> : int, optional<br />
+        The maximum value for n_clusters (relevant only if cluster_evol &lt;&gt; 'constant').
+        Default is 5.  </p>
+<p><code>nugget</code> : float, optional<br />
+        The nugget to set for the Gaussian Copula Process or Gaussian Process.
+        Default is 1.e-10.  </p>
+<p><code>GCP_mapWithNoise</code> : boolean, optional<br />
+        If True and if Y outputs contain multiple noisy observations for the same
+        x inputs, then all the noisy observations are used to compute Y's distribution
+        and learn the mapping function.
+        Otherwise, only the mean of the outputs, for a given input x, is considered.
+        Default is False.  </p>
+<p><code>GCP_useAllNoisyY</code> : boolean, optional<br />
+        If True and if Y outputs contain multiple noisy observations for the same
+        x inputs, then all the warped noisy observations are used to fit the GP.
+        Otherwise, only the mean of the outputs, for a given input x, is considered.
+        Default is False.  </p>
+<p><code>model_noise</code> : string {'EGN',None}, optional<br />
+        Method to model the noise.
+        If not None and if Y outputs contain multiple noisy observations for the same
+        x inputs, then the nugget is estimated from the standard deviation of the multiple 
+        outputs for a given input x.
+        Default is None.  </p>
+<p><code>detailed_res</code> : int, optional<br />
+        Specify the level of details to return.
+        0 : tested parameters and mean outputs
+        1 : tested parameters and list of CV results
+        2 : tested parameters, search path, list of all CV results and mean outputs
+        Default is 1.  </p>
+<h2><strong>Attributes</strong></h2>
+<p><code>best_parameter_</code> : dict, the parameter set, from those tested by the method _fit, that
+        maximizes the mean of the cross-validation results.</p>
+<p><code>tested_parameters_</code> : ndarray, the parameters tested by _fit</p>
+<p><code>cv_scores_</code> : if score_format == 'cv', list of all the CV results of the parameters
+        tested by _fit;
+                         if score_format == 'avg', array of the mean CV results of the parameters
+        tested by _fit</p>
+<h2><strong>Examples</strong></h2>
+<div class="codehilite"><pre>    <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">iris</span> <span class="o">=</span> <span class="n">load_digits</span><span class="p">()</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">clf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s">&quot;max_depth&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;int&#39;</span><span class="p">,[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span>
+                    <span class="s">&quot;max_features&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;int&#39;</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">]],</span>
+                    <span class="s">&quot;min_samples_split&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;int&#39;</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">]],</span>
+                    <span class="s">&quot;min_samples_leaf&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;int&#39;</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">]],</span>
+                    <span class="s">&quot;bootstrap&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;cat&#39;</span><span class="p">,[</span><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">]],</span>
+                    <span class="s">&quot;criterion&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;cat&#39;</span><span class="p">,[</span><span class="s">&quot;gini&quot;</span><span class="p">,</span> <span class="s">&quot;entropy&quot;</span><span class="p">]]}</span>
+
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">search</span> <span class="o">=</span> <span class="n">SmartSearch</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span><span class="n">estimator</span><span class="o">=</span><span class="n">clf</span><span class="p">,</span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="n">n_iter</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">search</span><span class="o">.</span><span class="n">_fit</span><span class="p">()</span>
+</pre></div></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-gcp_hpo.smart_search.SmartSearch', this);">Show source &equiv;</a></p>
+  <div id="source-gcp_hpo.smart_search.SmartSearch" class="source">
+    <div class="codehilite"><pre><span class="k">class</span> <span class="nc">SmartSearch</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;The class for GCP-based hyper-parameter optimization.  </span>
+<span class="sd">	Also handling randomized and GP-based search.</span>
+
+<span class="sd">	**Parameters**</span>
+<span class="sd">	----------</span>
+<span class="sd">	`parameters` : dict, parameter space on which to optimize the estimator  </span>
+<span class="sd">		The keys of the dictionnary should be the names of the parameters,</span>
+<span class="sd">		and the values should be lists of length 2; the first element being</span>
+<span class="sd">		the type of the parameter (&#39;int&#39;, &#39;float&#39; or &#39;cat&#39; [for categorical]),</span>
+<span class="sd">		and the second element being a list of either the bounds between which</span>
+<span class="sd">		to search (for &#39;int&#39; and &#39;float&#39;) or the values the parameter can take</span>
+<span class="sd">		(for &#39;cat&#39;)</span>
+<span class="sd">		Example : parameters = {&#39;kernel&#39; :  [&#39;cat&#39;, [&#39;rbf&#39;,&#39;poly&#39;]],</span>
+<span class="sd">				     			 &#39;d&#39; : [&#39;int&#39;, [1,3]],</span>
+<span class="sd">					  			 &#39;C&#39; : [&#39;float&#39;,[1,10])}  </span>
+
+<span class="sd">	`estimator` : 1) sklearn estimator or 2) callable  </span>
+<span class="sd">		1 : object type that implements the &quot;fit&quot; and &quot;predict&quot; methods,</span>
+<span class="sd">		as a classifier or a pipeline</span>
+<span class="sd">		2 : a function that computes the output given a dictionnary of </span>
+<span class="sd">		parameters. The returned value should be a list of one or more </span>
+<span class="sd">		floats if score_format == &#39;cv&#39;, and a float if score_format == </span>
+<span class="sd">		&#39;avg&#39;.   </span>
+
+<span class="sd">	`X` : array-like, shape = [n_samples, n_features]  </span>
+<span class="sd">		Training vector, where n_samples in the number of samples and</span>
+<span class="sd">		n_features is the number of features.   </span>
+
+<span class="sd">	`y` : array-like, shape = [n_samples] or [n_samples, n_output], optional  </span>
+<span class="sd">		Target relative to X for classification or regression;</span>
+<span class="sd">		None for unsupervised learning.  </span>
+
+<span class="sd">	`model` : string, optional  </span>
+<span class="sd">		The model to run.</span>
+<span class="sd">		Choose between :</span>
+<span class="sd">		- GCP (non-parametric (Latent) Gaussian Copula Process)</span>
+<span class="sd">		- GP (Gaussian Process)</span>
+<span class="sd">		- rand (samples at random)  </span>
+
+<span class="sd">	`score_format` : string (&#39;cv&#39; or &#39;avg&#39;), optional   </span>
+<span class="sd">		&#39;avg&#39; considers only the mean of the CV results while &#39;cv&#39;</span>
+<span class="sd">		stores all values</span>
+<span class="sd">		Default is &#39;cv&#39;  </span>
+
+<span class="sd">	`fit_params` : dict, optional  </span>
+<span class="sd">		Parameters to pass to the fit method.  </span>
+
+<span class="sd">	`scoring` : string, callable or None, optional  </span>
+<span class="sd">	    A string (see sklearn&#39;s model evaluation documentation) or</span>
+<span class="sd">	    a scorer callable object / function with signature</span>
+<span class="sd">	    ``scorer(estimator, X, y)``.</span>
+<span class="sd">	    Default is None.  </span>
+
+<span class="sd">	`cv` : integer or cross-validation generator, optional  </span>
+<span class="sd">		Relevant if the estimator is an sklearn object.</span>
+<span class="sd">		If an integer is passed, it is the number of folds.</span>
+<span class="sd">		Specific cross-validation objects can be passed, see</span>
+<span class="sd">		sklearn.cross_validation module for the list of possible objects</span>
+<span class="sd">		Default is 5.  </span>
+
+<span class="sd">	`acquisition function` : string, optional  </span>
+<span class="sd">		Function to maximize in order to choose the next parameter to test.  </span>
+<span class="sd">		- Simple : maximize the predicted output  </span>
+<span class="sd">		- UCB : maximize the upper confidence bound  </span>
+<span class="sd">		- EI : maximizes the expected improvement  </span>
+<span class="sd">		Default is &#39;UCB&#39;  </span>
+
+<span class="sd">	`corr_kernel` : string, optional  </span>
+<span class="sd">		Correlation kernel to choose for the GCP.   </span>
+<span class="sd">		Possible choices are :</span>
+<span class="sd">		- exponential_periodic (a linear combination of 3 classic kernels)</span>
+<span class="sd">		- squared_exponential</span>
+<span class="sd">		Default is &#39;exponential_periodic&#39;.  </span>
+
+<span class="sd">	`n_iter` : int  </span>
+<span class="sd">		Total number of iterations to perform (including n_init and n_final_iter).</span>
+<span class="sd">		Default is 100.  </span>
+
+<span class="sd">	`n_init` : int, optional  </span>
+<span class="sd">		Number of random iterations to perform before the smart sampling.</span>
+<span class="sd">		Default is 30.  </span>
+
+<span class="sd">	`n_final_iter` : int, optional  </span>
+<span class="sd">		Number of final iterations, ie. smart iterations but with</span>
+<span class="sd">		acquisition_function == &#39;Simple&#39;</span>
+<span class="sd">		Default is 5.  </span>
+
+<span class="sd">	`n_candidates` : int, optional  </span>
+<span class="sd">		Number of random candidates to sample for each GCP / GP iterations</span>
+<span class="sd">		Default is 500.  </span>
+
+<span class="sd">	`n_clusters` : int, optional  </span>
+<span class="sd">		Number of clusters used in the parameter space to build a variable mapping for the GCP.</span>
+<span class="sd">		Default is 1.  </span>
+
+<span class="sd">	`cluster_evol` : string {&#39;constant&#39;, &#39;step&#39;, &#39;variable&#39;}, optional  </span>
+<span class="sd">		Method used to set the number of clusters.</span>
+<span class="sd">		If &#39;constant&#39;, the number of clusters is set with n_clusters.</span>
+<span class="sd">		If &#39;step&#39;, start with one cluster, and set n_clusters after 20 smart steps.</span>
+<span class="sd">		If &#39;variable&#39;, start with one cluster and increase n_clusters by one every 30 smart steps.</span>
+<span class="sd">		Default is constant.  </span>
+
+<span class="sd">	`n_clusters_max` : int, optional  </span>
+<span class="sd">		The maximum value for n_clusters (relevant only if cluster_evol &lt;&gt; &#39;constant&#39;).</span>
+<span class="sd">		Default is 5.  </span>
+
+<span class="sd">	`nugget` : float, optional  </span>
+<span class="sd">		The nugget to set for the Gaussian Copula Process or Gaussian Process.</span>
+<span class="sd">		Default is 1.e-10.  </span>
+
+<span class="sd">	`GCP_mapWithNoise` : boolean, optional  </span>
+<span class="sd">		If True and if Y outputs contain multiple noisy observations for the same</span>
+<span class="sd">		x inputs, then all the noisy observations are used to compute Y&#39;s distribution</span>
+<span class="sd">		and learn the mapping function.</span>
+<span class="sd">		Otherwise, only the mean of the outputs, for a given input x, is considered.</span>
+<span class="sd">		Default is False.  </span>
+
+<span class="sd">	`GCP_useAllNoisyY` : boolean, optional  </span>
+<span class="sd">		If True and if Y outputs contain multiple noisy observations for the same</span>
+<span class="sd">		x inputs, then all the warped noisy observations are used to fit the GP.</span>
+<span class="sd">		Otherwise, only the mean of the outputs, for a given input x, is considered.</span>
+<span class="sd">		Default is False.  </span>
+
+<span class="sd">	`model_noise` : string {&#39;EGN&#39;,None}, optional  </span>
+<span class="sd">		Method to model the noise.</span>
+<span class="sd">		If not None and if Y outputs contain multiple noisy observations for the same</span>
+<span class="sd">		x inputs, then the nugget is estimated from the standard deviation of the multiple </span>
+<span class="sd">		outputs for a given input x.</span>
+<span class="sd">		Default is None.  </span>
+
+<span class="sd">	`detailed_res` : int, optional  </span>
+<span class="sd">		Specify the level of details to return.</span>
+<span class="sd">		0 : tested parameters and mean outputs</span>
+<span class="sd">		1 : tested parameters and list of CV results</span>
+<span class="sd">		2 : tested parameters, search path, list of all CV results and mean outputs</span>
+<span class="sd">		Default is 1.  </span>
+
+
+<span class="sd">	**Attributes**</span>
+<span class="sd">	----------</span>
+<span class="sd">	`best_parameter_` : dict, the parameter set, from those tested by the method _fit, that</span>
+<span class="sd">		maximizes the mean of the cross-validation results.</span>
+
+<span class="sd">	`tested_parameters_` : ndarray, the parameters tested by _fit</span>
+
+<span class="sd">	`cv_scores_` : if score_format == &#39;cv&#39;, list of all the CV results of the parameters</span>
+<span class="sd">		tested by _fit;</span>
+<span class="sd">				 if score_format == &#39;avg&#39;, array of the mean CV results of the parameters</span>
+<span class="sd">		tested by _fit</span>
+
+
+<span class="sd">	**Examples**</span>
+<span class="sd">	--------</span>
+<span class="sd">		&gt;&gt;&gt; from sklearn.datasets import load_digits</span>
+<span class="sd">		&gt;&gt;&gt; iris = load_digits()</span>
+<span class="sd">		&gt;&gt;&gt; X, y = iris.data, iris.target</span>
+<span class="sd">		&gt;&gt;&gt; clf = RandomForestClassifier(n_estimators=20)</span>
+<span class="sd">		&gt;&gt;&gt; parameters = {</span>
+<span class="sd">				&quot;max_depth&quot;: [&#39;int&#39;,[3, 3]],</span>
+<span class="sd">				&quot;max_features&quot;: [&#39;int&#39;,[1,11]],</span>
+<span class="sd">				&quot;min_samples_split&quot;: [&#39;int&#39;,[1,11]],</span>
+<span class="sd">				&quot;min_samples_leaf&quot;: [&#39;int&#39;,[1,11]],</span>
+<span class="sd">				&quot;bootstrap&quot;: [&#39;cat&#39;,[True, False]],</span>
+<span class="sd">				&quot;criterion&quot;: [&#39;cat&#39;,[&quot;gini&quot;, &quot;entropy&quot;]]}</span>
+
+<span class="sd">		&gt;&gt;&gt; search = SmartSearch(parameters,estimator=clf,X=X,y=y,n_iter=20)</span>
+<span class="sd">		&gt;&gt;&gt; search._fit()</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+				<span class="n">parameters</span><span class="p">,</span>
+				<span class="n">estimator</span><span class="p">,</span>
+				<span class="n">X</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+				<span class="n">y</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+				<span class="n">model</span><span class="o">=</span><span class="s">&#39;GCP&#39;</span><span class="p">,</span>
+				<span class="n">score_format</span> <span class="o">=</span> <span class="s">&#39;cv&#39;</span><span class="p">,</span>
+				<span class="n">fit_params</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+				<span class="n">scoring</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+				<span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+				<span class="n">acquisition_function</span> <span class="o">=</span> <span class="s">&#39;UCB&#39;</span><span class="p">,</span>
+				<span class="n">corr_kernel</span><span class="o">=</span> <span class="s">&#39;squared_exponential&#39;</span><span class="p">,</span>
+				<span class="n">n_clusters</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+				<span class="n">n_clusters_max</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+				<span class="n">cluster_evol</span> <span class="o">=</span> <span class="s">&#39;constant&#39;</span><span class="p">,</span>
+				<span class="n">GCP_mapWithNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+				<span class="n">GCP_useAllNoisyY</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+				<span class="n">model_noise</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+				<span class="n">n_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+				<span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+				<span class="n">n_final_iter</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+				<span class="n">n_candidates</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
+				<span class="n">nugget</span><span class="o">=</span><span class="mf">1.e-10</span><span class="p">,</span>
+				<span class="n">detailed_res</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+				<span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="n">parameters</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">n_parameters</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">=</span> <span class="n">n_iter</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">n_init</span> <span class="o">=</span> <span class="n">n_init</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">n_final_iter</span> <span class="o">=</span> <span class="n">n_final_iter</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">n_candidates</span> <span class="o">=</span> <span class="n">n_candidates</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">param_names</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">parameters</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">param_isInt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span> <span class="k">if</span> <span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;float&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span> <span class="p">])</span> 
+		<span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">n_parameters</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">scoring</span> <span class="o">=</span> <span class="n">scoring</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">estimator</span> <span class="o">=</span> <span class="n">estimator</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fit_params</span> <span class="o">=</span> <span class="n">fit_params</span> <span class="k">if</span> <span class="n">fit_params</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="p">{}</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">cv</span> <span class="o">=</span> <span class="n">cv</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">X</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">score_format</span> <span class="o">=</span> <span class="n">score_format</span> <span class="c"># &#39;cv&#39; or &#39;avg&#39;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">acquisition_function</span> <span class="o">=</span> <span class="n">acquisition_function</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">corr_kernel</span> <span class="o">=</span> <span class="n">corr_kernel</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">n_clusters</span> <span class="o">=</span> <span class="n">n_clusters</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">n_clusters_max</span> <span class="o">=</span> <span class="n">n_clusters_max</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">cluster_evol</span> <span class="o">=</span> <span class="n">cluster_evol</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">GCP_mapWithNoise</span> <span class="o">=</span> <span class="n">GCP_mapWithNoise</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">GCP_useAllNoisyY</span> <span class="o">=</span> <span class="n">GCP_useAllNoisyY</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">model_noise</span> <span class="o">=</span> <span class="n">model_noise</span>		
+		<span class="bp">self</span><span class="o">.</span><span class="n">GCP_upperBound_coef</span> <span class="o">=</span> <span class="mf">1.96</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">nugget</span> <span class="o">=</span> <span class="n">nugget</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">detailed_res</span> <span class="o">=</span> <span class="n">detailed_res</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">best_parameter_</span> <span class="o">=</span> <span class="bp">None</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">tested_parameters_</span> <span class="o">=</span> <span class="bp">None</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">cv_scores_</span> <span class="o">=</span> <span class="bp">None</span>
+
+		<span class="k">if</span><span class="p">(</span><span class="n">cluster_evol</span> <span class="o">!=</span> <span class="s">&#39;constant&#39;</span><span class="p">):</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span> <span class="o">=</span> <span class="p">[</span><span class="n">corr_kernel</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">GCP_mapWithNoise</span><span class="p">,</span><span class="n">GCP_useAllNoisyY</span><span class="p">,</span><span class="n">model_noise</span><span class="p">,</span><span class="n">nugget</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">GCP_upperBound_coef</span><span class="p">]</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span> <span class="o">=</span> <span class="p">[</span><span class="n">corr_kernel</span><span class="p">,</span> <span class="n">n_clusters</span><span class="p">,</span><span class="n">GCP_mapWithNoise</span><span class="p">,</span><span class="n">GCP_useAllNoisyY</span><span class="p">,</span><span class="n">model_noise</span><span class="p">,</span><span class="n">nugget</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">GCP_upperBound_coef</span><span class="p">]</span>
+			
+		<span class="k">if</span><span class="p">(</span><span class="nb">callable</span><span class="p">(</span><span class="n">estimator</span><span class="p">)):</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">_callable_estimator</span> <span class="o">=</span> <span class="bp">True</span>
+			<span class="k">if</span><span class="p">(</span><span class="n">verbose</span><span class="p">):</span>
+				<span class="k">print</span><span class="p">(</span><span class="s">&#39;Estimator is a callable and not an sklearn Estimator&#39;</span><span class="p">)</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">_callable_estimator</span> <span class="o">=</span> <span class="bp">False</span>
+
+		<span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_callable_estimator</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">scorer_</span> <span class="o">=</span> <span class="n">check_scoring</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scoring</span><span class="p">)</span>
+
+		<span class="c"># init param_bounds</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_parameters</span><span class="p">):</span>
+			<span class="k">if</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;cat&#39;</span><span class="p">):</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">])</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">])</span>
+				<span class="k">if</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;int&#39;</span><span class="p">):</span>
+					<span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+		<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+			<span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">)</span>
+			<span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">)</span>
+			<span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_isInt</span><span class="p">)</span>
+			<span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">)</span>
+
+
+	<span class="k">def</span> <span class="nf">vector_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">vector_parameter</span><span class="p">):</span>
+		<span class="n">dict_parameter</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">)</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_parameters</span><span class="p">):</span>
+			<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;cat&#39;</span><span class="p">):</span>
+				<span class="n">dict_parameter</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">])[</span><span class="nb">int</span><span class="p">(</span><span class="n">vector_parameter</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span>
+			<span class="k">elif</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;int&#39;</span><span class="p">):</span>
+				<span class="n">dict_parameter</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">vector_parameter</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">dict_parameter</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">vector_parameter</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+		<span class="k">return</span> <span class="n">dict_parameter</span>
+
+	<span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">test_parameter</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		The score function to call in order to evaluate the quality </span>
+<span class="sd">		of the parameter test_parameter</span>
+
+<span class="sd">		Parameters</span>
+<span class="sd">		----------</span>
+<span class="sd">		`tested_parameter` : dict, the parameter to test</span>
+
+<span class="sd">		Returns</span>
+<span class="sd">		-------</span>
+<span class="sd">		`score` : the CV score, either the list of all cv results or</span>
+<span class="sd">			the mean (depending of score_format)</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+
+		<span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_callable_estimator</span><span class="p">:</span>
+	 		<span class="n">cv</span> <span class="o">=</span> <span class="n">check_cv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">classifier</span><span class="o">=</span><span class="n">is_classifier</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">))</span>
+	 		<span class="n">cv_score</span> <span class="o">=</span> <span class="p">[</span> <span class="n">_fit_and_score</span><span class="p">(</span><span class="n">clone</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scorer_</span><span class="p">,</span>
+							<span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="n">test_parameter</span><span class="p">,</span>
+							<span class="bp">self</span><span class="o">.</span><span class="n">fit_params</span><span class="p">,</span> <span class="n">return_parameters</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+						<span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">cv</span> <span class="p">]</span>
+
+			<span class="n">n_test_samples</span> <span class="o">=</span> <span class="mi">0</span>
+			<span class="n">mean_score</span> <span class="o">=</span> <span class="mi">0</span>
+			<span class="n">detailed_score</span> <span class="o">=</span> <span class="p">[]</span>
+			<span class="k">for</span> <span class="n">tmp_score</span><span class="p">,</span> <span class="n">tmp_n_test_samples</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">cv_score</span><span class="p">:</span>
+				<span class="n">detailed_score</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp_score</span><span class="p">)</span>
+				<span class="n">tmp_score</span> <span class="o">*=</span> <span class="n">tmp_n_test_samples</span>
+				<span class="n">n_test_samples</span> <span class="o">+=</span> <span class="n">tmp_n_test_samples</span>
+				<span class="n">mean_score</span> <span class="o">+=</span> <span class="n">tmp_score</span>
+			<span class="n">mean_score</span> <span class="o">/=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_test_samples</span><span class="p">)</span>
+
+			<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">score_format</span> <span class="o">==</span> <span class="s">&#39;avg&#39;</span><span class="p">):</span>
+				<span class="n">score</span> <span class="o">=</span> <span class="n">mean_score</span>
+			<span class="k">else</span><span class="p">:</span> <span class="c"># format == &#39;cv&#39;</span>
+				<span class="n">score</span> <span class="o">=</span> <span class="n">detailed_score</span>
+
+
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">score_format</span> <span class="o">==</span> <span class="s">&#39;avg&#39;</span><span class="p">):</span>
+				<span class="n">score</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">(</span><span class="n">test_parameter</span><span class="p">)]</span>
+			<span class="k">else</span><span class="p">:</span> <span class="c"># format == &#39;cv&#39;</span>
+				<span class="n">score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">(</span><span class="n">test_parameter</span><span class="p">)</span>
+
+		<span class="k">return</span> <span class="n">score</span>
+
+
+	<span class="k">def</span> <span class="nf">_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Run the hyper-parameter optimization process</span>
+
+<span class="sd">		Returns</span>
+<span class="sd">		-------</span>
+<span class="sd">		`tested_parameters_` : ndarray, the parameters tested during the process</span>
+
+<span class="sd">		`cv_scores_` : if score_format == &#39;cv&#39;, list of all the CV results of the </span>
+<span class="sd">			parameters tested; if score_format == &#39;avg&#39;, array of the </span>
+<span class="sd">			mean CV results of the parameters tested</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+
+		<span class="n">n_tested_parameters</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="n">tested_parameters</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">n_parameters</span><span class="p">))</span>
+		<span class="n">cv_scores</span> <span class="o">=</span> <span class="p">[]</span>
+		<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">detailed_res</span> <span class="o">==</span><span class="mi">2</span><span class="p">):</span>
+			<span class="n">search_path</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">n_parameters</span><span class="p">))</span>
+
+		<span class="c">###    Initialize with random candidates    ### </span>
+		<span class="n">init_candidates</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">sample_candidates</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_init</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">param_isInt</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">n_init</span> <span class="o">=</span> <span class="n">init_candidates</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+		<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+			<span class="k">print</span><span class="p">(</span><span class="s">&#39;Start random init&#39;</span><span class="p">)</span>
+
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_init</span><span class="p">):</span>
+			<span class="n">dict_candidate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vector_to_dict</span><span class="p">(</span><span class="n">init_candidates</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+			<span class="n">cv_score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">dict_candidate</span><span class="p">)</span>
+
+			<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+				<span class="k">print</span> <span class="p">(</span><span class="s">&#39;Step &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; - Hyperparameter &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dict_candidate</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cv_score</span><span class="p">)))</span>
+
+			<span class="n">is_in</span><span class="p">,</span><span class="n">idx</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">is_in_ndarray</span><span class="p">(</span><span class="n">init_candidates</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span><span class="n">tested_parameters</span><span class="p">[:</span><span class="n">n_tested_parameters</span><span class="p">,:])</span>
+			<span class="k">if</span> <span class="ow">not</span> <span class="n">is_in</span><span class="p">:</span>
+				<span class="n">tested_parameters</span><span class="p">[</span><span class="n">n_tested_parameters</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">init_candidates</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span>
+				<span class="n">cv_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cv_score</span><span class="p">)</span>
+				<span class="n">n_tested_parameters</span> <span class="o">+=</span> <span class="mi">1</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+					<span class="k">print</span><span class="p">(</span><span class="s">&#39;Hyperparameter already tesed&#39;</span><span class="p">)</span>
+				<span class="n">cv_scores</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">+=</span>  <span class="n">cv_score</span>
+
+			<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">detailed_res</span> <span class="o">==</span><span class="mi">2</span><span class="p">):</span>
+				<span class="n">search_path</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">init_candidates</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span>
+
+
+		<span class="c">###               Smart Search               ### </span>
+		<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+			<span class="k">print</span><span class="p">(</span><span class="s">&#39;Start smart search&#39;</span><span class="p">)</span>
+
+		<span class="n">i_mod_10</span> <span class="o">=</span> <span class="mi">0</span>  
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_init</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_final_iter</span><span class="p">):</span>
+
+			<span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="mi">20</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_evol</span><span class="o">==</span><span class="s">&#39;step&#39;</span><span class="p">):</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">n_clusters</span>
+
+			<span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">10</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">i_mod_10</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_evol</span><span class="o">==</span><span class="s">&#39;variable&#39;</span><span class="p">):</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">n_clusters_max</span><span class="p">)</span>
+				<span class="n">i_mod_10</span> <span class="o">+=</span> <span class="mi">3</span>
+			
+			<span class="c"># Sample candidates and predict their corresponding acquisition values</span>
+			<span class="n">candidates</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">sample_candidates</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_candidates</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">param_isInt</span><span class="p">)</span>
+
+			<span class="c"># Model and retrieve the candidate that maximezes the acquisiton function</span>
+			<span class="n">best_candidate</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">find_best_candidate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+														<span class="n">tested_parameters</span><span class="p">[:</span><span class="n">n_tested_parameters</span><span class="p">,:],</span>
+														<span class="n">cv_scores</span><span class="p">,</span>
+														<span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span><span class="p">,</span>
+												 		<span class="n">candidates</span><span class="p">,</span>
+												 		<span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">,</span>
+												 		<span class="bp">self</span><span class="o">.</span><span class="n">acquisition_function</span><span class="p">)</span>
+
+			<span class="n">dict_candidate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vector_to_dict</span><span class="p">(</span><span class="n">best_candidate</span><span class="p">)</span>
+			<span class="n">cv_score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">dict_candidate</span><span class="p">)</span>
+
+			<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+				<span class="k">print</span> <span class="p">(</span><span class="s">&#39;Step &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">n_init</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; - Hyperparameter &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dict_candidate</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cv_score</span><span class="p">)))</span>
+
+			<span class="n">is_in</span><span class="p">,</span><span class="n">idx</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">is_in_ndarray</span><span class="p">(</span><span class="n">best_candidate</span><span class="p">,</span><span class="n">tested_parameters</span><span class="p">[:</span><span class="n">n_tested_parameters</span><span class="p">,:])</span>
+			<span class="k">if</span> <span class="ow">not</span> <span class="n">is_in</span><span class="p">:</span>
+				<span class="n">tested_parameters</span><span class="p">[</span><span class="n">n_tested_parameters</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">best_candidate</span>
+				<span class="n">cv_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cv_score</span><span class="p">)</span>
+				<span class="n">n_tested_parameters</span> <span class="o">+=</span> <span class="mi">1</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+					<span class="k">print</span><span class="p">(</span><span class="s">&#39;Hyperparameter already tesed&#39;</span><span class="p">)</span>
+				<span class="n">cv_scores</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">+=</span> <span class="n">cv_score</span>
+
+			<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">detailed_res</span> <span class="o">==</span><span class="mi">2</span><span class="p">):</span>
+				<span class="n">search_path</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_init</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">best_candidate</span>
+
+
+		<span class="c">###               Final steps               ###      </span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">acquisition_function</span> <span class="o">=</span> <span class="s">&#39;Simple&#39;</span>
+
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_final_iter</span><span class="p">):</span>
+
+			<span class="c"># Sample candidates and predict their corresponding acquisition values</span>
+			<span class="n">candidates</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">sample_candidates</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_candidates</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">param_isInt</span><span class="p">)</span>
+
+			<span class="c"># Model and retrieve the candidate that maximezes the acquisiton function</span>
+			<span class="n">best_candidate</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">find_best_candidate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+														<span class="n">tested_parameters</span><span class="p">[:</span><span class="n">n_tested_parameters</span><span class="p">,:],</span>
+														<span class="n">cv_scores</span><span class="p">,</span>
+														<span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span><span class="p">,</span>
+												 		<span class="n">candidates</span><span class="p">,</span>
+												 		<span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">,</span>
+												 		<span class="bp">self</span><span class="o">.</span><span class="n">acquisition_function</span><span class="p">)</span>
+
+			<span class="n">dict_candidate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vector_to_dict</span><span class="p">(</span><span class="n">best_candidate</span><span class="p">)</span>
+			<span class="n">cv_score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">dict_candidate</span><span class="p">)</span>
+
+			<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+				<span class="k">print</span> <span class="p">(</span><span class="s">&#39;Step &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_final_iter</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; - Hyperparameter &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dict_candidate</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cv_score</span><span class="p">)))</span>
+
+			<span class="n">is_in</span><span class="p">,</span><span class="n">idx</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">is_in_ndarray</span><span class="p">(</span><span class="n">best_candidate</span><span class="p">,</span><span class="n">tested_parameters</span><span class="p">[:</span><span class="n">n_tested_parameters</span><span class="p">,:])</span>
+			<span class="k">if</span> <span class="ow">not</span> <span class="n">is_in</span><span class="p">:</span>
+				<span class="n">tested_parameters</span><span class="p">[</span><span class="n">n_tested_parameters</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">best_candidate</span>
+				<span class="n">cv_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cv_score</span><span class="p">)</span>
+				<span class="n">n_tested_parameters</span> <span class="o">+=</span> <span class="mi">1</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+					<span class="k">print</span><span class="p">(</span><span class="s">&#39;Hyperparameter already tesed&#39;</span><span class="p">)</span>
+				<span class="n">cv_scores</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">+=</span> <span class="n">cv_score</span>
+
+			<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">detailed_res</span> <span class="o">==</span><span class="mi">2</span><span class="p">):</span>
+				<span class="n">search_path</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_final_iter</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">best_candidate</span>
+
+
+		<span class="c"># compute the averages of CV results</span>
+		<span class="n">mean_scores</span> <span class="o">=</span> <span class="p">[]</span>
+		<span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">cv_scores</span><span class="p">:</span>
+			<span class="n">mean_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">o</span><span class="p">))</span>
+
+		<span class="c"># find the max</span>
+		<span class="n">best_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">mean_scores</span><span class="p">)</span>
+		<span class="n">vector_best_param</span> <span class="o">=</span> <span class="n">tested_parameters</span><span class="p">[</span><span class="n">best_idx</span><span class="p">]</span>
+		<span class="n">best_parameter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vector_to_dict</span><span class="p">(</span><span class="n">vector_best_param</span><span class="p">)</span>
+
+		<span class="c"># store</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">best_parameter_</span> <span class="o">=</span> <span class="n">best_parameter</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">tested_parameters_</span> <span class="o">=</span> <span class="n">tested_parameters</span><span class="p">[:</span><span class="n">n_tested_parameters</span><span class="p">,:]</span>
+
+		<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+			<span class="k">print</span> <span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">Tested &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n_tested_parameters</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; parameters&#39;</span><span class="p">)</span>
+			<span class="k">print</span> <span class="p">(</span><span class="s">&#39;Max cv score &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mean_scores</span><span class="p">[</span><span class="n">best_idx</span><span class="p">]))</span>
+			<span class="k">print</span> <span class="p">(</span><span class="s">&#39;Best parameter &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">tested_parameters</span><span class="p">[</span><span class="n">best_idx</span><span class="p">]))</span>
+			<span class="k">print</span><span class="p">(</span><span class="n">best_parameter</span><span class="p">)</span>
+
+		<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">detailed_res</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">cv_scores_</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cv_scores</span><span class="p">)</span>
+			<span class="k">return</span> <span class="n">tested_parameters</span><span class="p">[:</span><span class="n">n_tested_parameters</span><span class="p">,:],</span> <span class="n">cv_scores</span>
+		<span class="k">elif</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">detailed_res</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">cv_scores_</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cv_scores</span><span class="p">)</span>
+			<span class="k">return</span> <span class="n">tested_parameters</span><span class="p">[:</span><span class="n">n_tested_parameters</span><span class="p">,:],</span> <span class="n">search_path</span><span class="p">,</span> <span class="n">cv_scores</span><span class="p">,</span> <span class="n">mean_scores</span>		
+		<span class="k">else</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">cv_scores_</span> <span class="o">=</span> <span class="n">mean_scores</span>
+			<span class="k">return</span> <span class="n">tested_parameters</span><span class="p">[:</span><span class="n">n_tested_parameters</span><span class="p">,:],</span> <span class="n">mean_scores</span>
+</pre></div>
+
+  </div>
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#gcp_hpo.smart_search.SmartSearch">SmartSearch</a></li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Instance variables</h3>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.GCP_mapWithNoise" class="name">var <span class="ident">GCP_mapWithNoise</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.GCP_upperBound_coef" class="name">var <span class="ident">GCP_upperBound_coef</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.GCP_useAllNoisyY" class="name">var <span class="ident">GCP_useAllNoisyY</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.X" class="name">var <span class="ident">X</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.acquisition_function" class="name">var <span class="ident">acquisition_function</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.best_parameter_" class="name">var <span class="ident">best_parameter_</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.cluster_evol" class="name">var <span class="ident">cluster_evol</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.corr_kernel" class="name">var <span class="ident">corr_kernel</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.cv" class="name">var <span class="ident">cv</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.cv_scores_" class="name">var <span class="ident">cv_scores_</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.detailed_res" class="name">var <span class="ident">detailed_res</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.estimator" class="name">var <span class="ident">estimator</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.fit_params" class="name">var <span class="ident">fit_params</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.model" class="name">var <span class="ident">model</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.model_noise" class="name">var <span class="ident">model_noise</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.n_candidates" class="name">var <span class="ident">n_candidates</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.n_clusters" class="name">var <span class="ident">n_clusters</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.n_clusters_max" class="name">var <span class="ident">n_clusters_max</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.n_final_iter" class="name">var <span class="ident">n_final_iter</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.n_init" class="name">var <span class="ident">n_init</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.n_iter" class="name">var <span class="ident">n_iter</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.n_parameters" class="name">var <span class="ident">n_parameters</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.nugget" class="name">var <span class="ident">nugget</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.param_bounds" class="name">var <span class="ident">param_bounds</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.param_isInt" class="name">var <span class="ident">param_isInt</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.param_names" class="name">var <span class="ident">param_names</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.parameters" class="name">var <span class="ident">parameters</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.score_format" class="name">var <span class="ident">score_format</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.scoring" class="name">var <span class="ident">scoring</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.tested_parameters_" class="name">var <span class="ident">tested_parameters_</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.verbose" class="name">var <span class="ident">verbose</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="gcp_hpo.smart_search.SmartSearch.y" class="name">var <span class="ident">y</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+          <h3>Methods</h3>
+            
+  <div class="item">
+    <div class="name def" id="gcp_hpo.smart_search.SmartSearch.__init__">
+    <p>def <span class="ident">__init__</span>(</p><p>self, parameters, estimator, X=None, y=None, model=&#39;GCP&#39;, score_format=&#39;cv&#39;, fit_params=None, scoring=None, cv=5, acquisition_function=&#39;UCB&#39;, corr_kernel=&#39;squared_exponential&#39;, n_clusters=1, n_clusters_max=5, cluster_evol=&#39;constant&#39;, GCP_mapWithNoise=False, GCP_useAllNoisyY=False, model_noise=None, n_iter=100, n_init=10, n_final_iter=5, n_candidates=500, nugget=1e-10, detailed_res=1, verbose=1)</p>
+    </div>
+    
+
+    
+  
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-gcp_hpo.smart_search.SmartSearch.__init__', this);">Show source &equiv;</a></p>
+  <div id="source-gcp_hpo.smart_search.SmartSearch.__init__" class="source">
+    <div class="codehilite"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+			<span class="n">parameters</span><span class="p">,</span>
+			<span class="n">estimator</span><span class="p">,</span>
+			<span class="n">X</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+			<span class="n">y</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+			<span class="n">model</span><span class="o">=</span><span class="s">&#39;GCP&#39;</span><span class="p">,</span>
+			<span class="n">score_format</span> <span class="o">=</span> <span class="s">&#39;cv&#39;</span><span class="p">,</span>
+			<span class="n">fit_params</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+			<span class="n">scoring</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+			<span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+			<span class="n">acquisition_function</span> <span class="o">=</span> <span class="s">&#39;UCB&#39;</span><span class="p">,</span>
+			<span class="n">corr_kernel</span><span class="o">=</span> <span class="s">&#39;squared_exponential&#39;</span><span class="p">,</span>
+			<span class="n">n_clusters</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+			<span class="n">n_clusters_max</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+			<span class="n">cluster_evol</span> <span class="o">=</span> <span class="s">&#39;constant&#39;</span><span class="p">,</span>
+			<span class="n">GCP_mapWithNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+			<span class="n">GCP_useAllNoisyY</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+			<span class="n">model_noise</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+			<span class="n">n_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+			<span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+			<span class="n">n_final_iter</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+			<span class="n">n_candidates</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
+			<span class="n">nugget</span><span class="o">=</span><span class="mf">1.e-10</span><span class="p">,</span>
+			<span class="n">detailed_res</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+			<span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="n">parameters</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">n_parameters</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">=</span> <span class="n">n_iter</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">n_init</span> <span class="o">=</span> <span class="n">n_init</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">n_final_iter</span> <span class="o">=</span> <span class="n">n_final_iter</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">n_candidates</span> <span class="o">=</span> <span class="n">n_candidates</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">param_names</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">parameters</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">param_isInt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span> <span class="k">if</span> <span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;float&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_names</span> <span class="p">])</span> 
+	<span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">n_parameters</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">scoring</span> <span class="o">=</span> <span class="n">scoring</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">estimator</span> <span class="o">=</span> <span class="n">estimator</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">fit_params</span> <span class="o">=</span> <span class="n">fit_params</span> <span class="k">if</span> <span class="n">fit_params</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="p">{}</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">cv</span> <span class="o">=</span> <span class="n">cv</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">X</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">score_format</span> <span class="o">=</span> <span class="n">score_format</span> <span class="c"># &#39;cv&#39; or &#39;avg&#39;</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">acquisition_function</span> <span class="o">=</span> <span class="n">acquisition_function</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">corr_kernel</span> <span class="o">=</span> <span class="n">corr_kernel</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">n_clusters</span> <span class="o">=</span> <span class="n">n_clusters</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">n_clusters_max</span> <span class="o">=</span> <span class="n">n_clusters_max</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">cluster_evol</span> <span class="o">=</span> <span class="n">cluster_evol</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">GCP_mapWithNoise</span> <span class="o">=</span> <span class="n">GCP_mapWithNoise</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">GCP_useAllNoisyY</span> <span class="o">=</span> <span class="n">GCP_useAllNoisyY</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">model_noise</span> <span class="o">=</span> <span class="n">model_noise</span>		
+	<span class="bp">self</span><span class="o">.</span><span class="n">GCP_upperBound_coef</span> <span class="o">=</span> <span class="mf">1.96</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">nugget</span> <span class="o">=</span> <span class="n">nugget</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">detailed_res</span> <span class="o">=</span> <span class="n">detailed_res</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">best_parameter_</span> <span class="o">=</span> <span class="bp">None</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">tested_parameters_</span> <span class="o">=</span> <span class="bp">None</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">cv_scores_</span> <span class="o">=</span> <span class="bp">None</span>
+	<span class="k">if</span><span class="p">(</span><span class="n">cluster_evol</span> <span class="o">!=</span> <span class="s">&#39;constant&#39;</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span> <span class="o">=</span> <span class="p">[</span><span class="n">corr_kernel</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">GCP_mapWithNoise</span><span class="p">,</span><span class="n">GCP_useAllNoisyY</span><span class="p">,</span><span class="n">model_noise</span><span class="p">,</span><span class="n">nugget</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">GCP_upperBound_coef</span><span class="p">]</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">GCP_args</span> <span class="o">=</span> <span class="p">[</span><span class="n">corr_kernel</span><span class="p">,</span> <span class="n">n_clusters</span><span class="p">,</span><span class="n">GCP_mapWithNoise</span><span class="p">,</span><span class="n">GCP_useAllNoisyY</span><span class="p">,</span><span class="n">model_noise</span><span class="p">,</span><span class="n">nugget</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">GCP_upperBound_coef</span><span class="p">]</span>
+		
+	<span class="k">if</span><span class="p">(</span><span class="nb">callable</span><span class="p">(</span><span class="n">estimator</span><span class="p">)):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_callable_estimator</span> <span class="o">=</span> <span class="bp">True</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">verbose</span><span class="p">):</span>
+			<span class="k">print</span><span class="p">(</span><span class="s">&#39;Estimator is a callable and not an sklearn Estimator&#39;</span><span class="p">)</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_callable_estimator</span> <span class="o">=</span> <span class="bp">False</span>
+	<span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_callable_estimator</span><span class="p">:</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">scorer_</span> <span class="o">=</span> <span class="n">check_scoring</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scoring</span><span class="p">)</span>
+	<span class="c"># init param_bounds</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_parameters</span><span class="p">):</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;cat&#39;</span><span class="p">):</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">])</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">])</span>
+			<span class="k">if</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;int&#39;</span><span class="p">):</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+	<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">):</span>
+		<span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">)</span>
+		<span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">)</span>
+		<span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_isInt</span><span class="p">)</span>
+		<span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_bounds</span><span class="p">)</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="gcp_hpo.smart_search.SmartSearch.score">
+    <p>def <span class="ident">score</span>(</p><p>self, test_parameter)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>The score function to call in order to evaluate the quality 
+of the parameter test_parameter</p>
+<h2>Parameters</h2>
+<p><code>tested_parameter</code> : dict, the parameter to test</p>
+<h2>Returns</h2>
+<p><code>score</code> : the CV score, either the list of all cv results or
+        the mean (depending of score_format)</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-gcp_hpo.smart_search.SmartSearch.score', this);">Show source &equiv;</a></p>
+  <div id="source-gcp_hpo.smart_search.SmartSearch.score" class="source">
+    <div class="codehilite"><pre><span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">test_parameter</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	The score function to call in order to evaluate the quality </span>
+<span class="sd">	of the parameter test_parameter</span>
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	`tested_parameter` : dict, the parameter to test</span>
+<span class="sd">	Returns</span>
+<span class="sd">	-------</span>
+<span class="sd">	`score` : the CV score, either the list of all cv results or</span>
+<span class="sd">		the mean (depending of score_format)</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_callable_estimator</span><span class="p">:</span>
+ 		<span class="n">cv</span> <span class="o">=</span> <span class="n">check_cv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">classifier</span><span class="o">=</span><span class="n">is_classifier</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">))</span>
+ 		<span class="n">cv_score</span> <span class="o">=</span> <span class="p">[</span> <span class="n">_fit_and_score</span><span class="p">(</span><span class="n">clone</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scorer_</span><span class="p">,</span>
+						<span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="n">test_parameter</span><span class="p">,</span>
+						<span class="bp">self</span><span class="o">.</span><span class="n">fit_params</span><span class="p">,</span> <span class="n">return_parameters</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+					<span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">cv</span> <span class="p">]</span>
+		<span class="n">n_test_samples</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="n">mean_score</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="n">detailed_score</span> <span class="o">=</span> <span class="p">[]</span>
+		<span class="k">for</span> <span class="n">tmp_score</span><span class="p">,</span> <span class="n">tmp_n_test_samples</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">cv_score</span><span class="p">:</span>
+			<span class="n">detailed_score</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp_score</span><span class="p">)</span>
+			<span class="n">tmp_score</span> <span class="o">*=</span> <span class="n">tmp_n_test_samples</span>
+			<span class="n">n_test_samples</span> <span class="o">+=</span> <span class="n">tmp_n_test_samples</span>
+			<span class="n">mean_score</span> <span class="o">+=</span> <span class="n">tmp_score</span>
+		<span class="n">mean_score</span> <span class="o">/=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_test_samples</span><span class="p">)</span>
+		<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">score_format</span> <span class="o">==</span> <span class="s">&#39;avg&#39;</span><span class="p">):</span>
+			<span class="n">score</span> <span class="o">=</span> <span class="n">mean_score</span>
+		<span class="k">else</span><span class="p">:</span> <span class="c"># format == &#39;cv&#39;</span>
+			<span class="n">score</span> <span class="o">=</span> <span class="n">detailed_score</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">score_format</span> <span class="o">==</span> <span class="s">&#39;avg&#39;</span><span class="p">):</span>
+			<span class="n">score</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">(</span><span class="n">test_parameter</span><span class="p">)]</span>
+		<span class="k">else</span><span class="p">:</span> <span class="c"># format == &#39;cv&#39;</span>
+			<span class="n">score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">(</span><span class="n">test_parameter</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">score</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="gcp_hpo.smart_search.SmartSearch.vector_to_dict">
+    <p>def <span class="ident">vector_to_dict</span>(</p><p>self, vector_parameter)</p>
+    </div>
+    
+
+    
+  
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-gcp_hpo.smart_search.SmartSearch.vector_to_dict', this);">Show source &equiv;</a></p>
+  <div id="source-gcp_hpo.smart_search.SmartSearch.vector_to_dict" class="source">
+    <div class="codehilite"><pre><span class="k">def</span> <span class="nf">vector_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">vector_parameter</span><span class="p">):</span>
+	<span class="n">dict_parameter</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_parameters</span><span class="p">):</span>
+		<span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;cat&#39;</span><span class="p">):</span>
+			<span class="n">dict_parameter</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">])[</span><span class="nb">int</span><span class="p">(</span><span class="n">vector_parameter</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span>
+		<span class="k">elif</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;int&#39;</span><span class="p">):</span>
+			<span class="n">dict_parameter</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">vector_parameter</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="n">dict_parameter</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_names</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">vector_parameter</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+	<span class="k">return</span> <span class="n">dict_parameter</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+      </div>
+      </div>
+
+  </section>
+
+    </article>
+  <div class="clear"> </div>
+  <footer id="footer">
+    <p>
+      Documentation generated by
+      <a href="https://github.com/BurntSushi/pdoc">pdoc 0.3.1</a>
+    </p>
+
+    <p>pdoc is in the public domain with the
+      <a href="http://unlicense.org">UNLICENSE</a></p>
+
+    <p>Design by <a href="http://nadh.in">Kailash Nadh</a></p>
+  </footer>
+</div>
+</body>
+</html>

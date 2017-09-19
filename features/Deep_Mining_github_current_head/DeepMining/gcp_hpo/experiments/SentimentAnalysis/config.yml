@@ -1,0 +1,25 @@
+n_exp : 50
+first_exp : 1
+
+###  Parameters  ###
+subsize : 5000
+model : 'GP'
+n_candidates : 1000
+model_noise : None
+n_random_init : 20
+n_iter : 1000
+n_clusters : 1
+cluster_evol : 'constant'
+acquisition_function : 'UCB'
+corr_kernel : 'squared_exponential' 
+GCP_mapWithNoise : False
+GCP_useAllNoisyY : False
+
+### Set the parameters : ####
+parameters : {'nb_features' : ['int', [1000, 40000]],
+              'max_ngram_range' : ['int', [1, 4]],
+              'min_df' : ['float', [0., 0.3]],
+              'max_df' : ['float', [0.4, 1.]],
+              'alpha_NB' : ['float', [0.01, 1.]],
+              'tfidf_norm' : ['cat', ['l1', 'l2']],
+              'use_idf' : ['cat', ['T', 'F']]}

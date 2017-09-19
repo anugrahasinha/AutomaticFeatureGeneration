@@ -1,0 +1,35 @@
+1) The config file is a seed file from which this engine can be tuned
+   The structure is something like this
+
+config = {                                                                <----------------- COMMON, will be present in all configs
+	"entities" : {                                                    <----------------- COMMON, will be present in all configs
+		"tablename1" : {
+			"feature_metadata" : {                            <----------------- COMMON, if a table exists, under this you will have the columns
+				"col1" : {
+					"categorical" : True/False
+					"numeric" : True/False
+					"categorical_filter" : True/False
+					"ignore" : True/False             <----------------- If this column has to be ignored all together
+				}
+			},
+			"included_row_functions" : [],                    <----------------- If you want to explicitly include certain row functions
+                                                                          <----------------- for this table, valid entries would be
+									  <----------------- 
+
+			"excluded_row_functions" : [],			  <----------------- If you want to explicitly exclude certain row functions
+									  <----------------- for this table, valid entries would be
+
+			"excluded_agg_entities" : ["sometablename"],      <----------------- If you want to exclude some table during aggregation for this
+									  <----------------- table
+
+			"one-to-one"            : ["sometablename"],      <----------------- If you want to explicitly state that another table is
+									  <----------------- one-to-one mapped with this table. This means, if you do
+									  <----------------- SELECT distinct(count(othertable.pkname)) FROM thistable JOIN 
+										             othertable ON othertable.pkname = thistable.fkname GROUP BY
+											     thistable.pkname
+									  <----------------- If all the values in above query turns out to be 1, then it is
+									  <----------------- one-to-one
+		}
+	}
+}
+		

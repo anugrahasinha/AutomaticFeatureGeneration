@@ -1,0 +1,102 @@
+# Branch Details #
+
+Devel2 Branch : Pertains to working on make_features only.
+Devel3 Branch : Pertains to working on predict.py work
+
+
+
+# Data Input details #
+   - Case 1 : When you have a single CSV file for test and train data (NON STAR SCHEMA BASED DATA)
+     For example 
+
+     (TRAIN DATA)
+     -------------------------------------------------------------------------------------------------------
+     |    ID     |      Column1     |     Column2    |      Column3      |    Column4     |   PredictCol   |
+     -------------------------------------------------------------------------------------------------------
+          ^                ^                 ^                 ^                 ^               ^
+          |                |                 |                 |                 |                |
+      PrimaryKey       Categorical       Categorical       Numerical        Numerial      ResultToBePredicted
+
+     
+
+      (TEST DATA)
+     --------------------------------------------------------------------------------------
+     |    ID     |      Column1     |     Column2    |      Column3      |    Column4     |
+     --------------------------------------------------------------------------------------
+          ^                ^                 ^                 ^                 ^         
+          |                |                 |                 |                 |         
+      PrimaryKey       Categorical       Categorical       Numerical        Numerial      
+
+     1) Data Cleaning (For both TEST and TRAIN DATA)
+        Develop a self definied process for imputing values for NAs and/or blank values
+        This would also mean, imputation needs to be done for outliers.
+        FEHRIA framework is not made for imputation or handling outliers.
+     
+     2) Data devision and consolidation:
+        After data cleaning, please create a separate CSV file from TRAIN DATA having ID column and PredictCol
+        Lets call this CSV/Table as Outcomes. PredictCol will be removed from TRAIN DATA, however, ID Column should remain.
+
+        (OUTCOMES) <-------------- DATA DIVISION ---------------->
+        ------------------------------
+        |    ID     |   PredictCol   |
+        ------------------------------
+
+
+        (TRAIN DATA & TEST DATA now becomes same)
+        --------------------------------------------------------------------------------------
+        |    ID     |      Column1     |     Column2    |      Column3      |    Column4     |
+        --------------------------------------------------------------------------------------
+             ^                ^                 ^                 ^                 ^         
+             |                |                 |                 |                 |         
+         PrimaryKey       Categorical       Categorical       Numerical        Numerial
+
+
+        
+         After the above operations, combine the TEST DATA and TRAIN DATA into 1 single CSV file
+
+        
+         SINGLE CSV TRAIN + TEST DATA = ALL DATA
+         (ALL DATA)        <------------- DATA CONSOLIDATION ---------------->
+        --------------------------------------------------------------------------------------
+        |    ID     |      Column1     |     Column2    |      Column3      |    Column4     |
+        --------------------------------------------------------------------------------------
+             ^                ^                 ^                 ^                 ^         
+             |                |                 |                 |                 |         
+         PrimaryKey       Categorical       Categorical       Numerical        Numerial
+
+      3) Create separate tables for each Categorical column, like TB_COL_1, TB_COL_2 and so on.
+         Creating separate tables for each categorical column, does not mean that these columns
+         need to be removed from ALL DATA
+
+         Finally the number of tables you will have are like following.
+
+         (ALL DATA)
+        --------------------------------------------------------------------------------------
+        |    ID     |      Column1     |     Column2    |      Column3      |    Column4     |
+        --------------------------------------------------------------------------------------
+             ^                ^                 ^                 ^                 ^         
+             |                |                 |                 |                 |         
+         PrimaryKey       Categorical       Categorical       Numerical        Numerial
+
+         (OUTCOMES) 
+        ------------------------------
+        |    ID     |   PredictCol   |      <----- OUTCOMES.id column linked as foriegn key to ALLDATA.ID 
+        ------------------------------
+
+        TB_COL_1
+        -------------                        
+        |  Column1  |   <---- PRIMARY KEY   <----- ALLDATA.Column1 linked as foriegn key to this primary key
+        -------------
+
+        TB_COL_2
+        -------------
+        |  Column2  |   <---- PRIMARY KEY   <----- ALLDATA.Column2 linked as foriegn key to this primary key
+        -------------
+
+     FEHRIA Requires data to be present in mysqlDB in the above format shown above. This is imperitive for
+     working of the framework.
+
+
+  Case 2: When Data is present in Star Schema Format in an existing MySQL DB
+     1) In this case, make sure above format is followed with SQL CONSTRAINTS made so that linkages between
+        table could be read and features be generated when FEHRIA runs.
